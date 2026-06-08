@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
+import logo from "../../assets/images/logo.webp";
 
 const NAV_LINKS = [
   { label: "Home", path: "/" },
@@ -19,27 +20,16 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300
-        ${scrolled ? "bg-primary shadow-lg py-3" : "bg-transparent py-5"}`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 bg-primary shadow-lg py-3 transition-all duration-300">
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3">
-          {/* <span className="text-3xl">⚗</span> */}
-          <div className="w-9 h-9 bg-accent rounded flex items-center justify-center">
-            <span className="font-display text-white font-black text-sm">
-              SSN
-            </span>
-          </div>
-          <div className="leading-tight">
-            <div className="font-display text-white font-bold text-xl tracking-widest">
-              SSN
-            </div>
-            <div className="font-ui text-accent text-[10px] tracking-[2px] uppercase">
-              Material Testing
-            </div>
-          </div>
+        <Link to="/" className="flex items-center">
+          <img
+            src={logo}
+            alt="SSN Corporation"
+            className="h-15 w-auto object-contain"
+            style={{ filter: "brightness(1.1) saturate(1.2)" }}
+          />
         </Link>
 
         {/* Desktop Nav */}

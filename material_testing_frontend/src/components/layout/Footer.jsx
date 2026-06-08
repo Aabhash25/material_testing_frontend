@@ -55,9 +55,9 @@ export default function Footer() {
             Contact Us
           </h4>
           <ul className="flex flex-col gap-3 font-body text-sm text-white/50">
-            <li>📍 Kathmandu, Nepal</li>
-            <li>📞 +977-1-XXXXXXX</li>
-            <li>✉️ info@ssnmaterialtesting.com</li>
+            <li>📍 5540 Centerview Dr, Ste #304 Raleigh, NC 27606</li>
+            <li>📞 (919) 703-0222</li>
+            <li>✉️ contact@ssncorporation.com</li>
             <li>🕐 Mon–Sat: 8am – 6pm</li>
           </ul>
         </div>

@@ -3,6 +3,7 @@ export const NAV_LINKS = [
   { label: 'Services', path: '/services' },
   { label: 'About', path: '/about' },
   { label: 'Contact', path: '/contact' },
+  // { label: 'Contact', path: '/contact' },
 ]
 
 export const SERVICES = [
@@ -60,23 +61,29 @@ export const STATS = [
 export const TESTIMONIALS = [
   {
     id: 1,
-    name: 'Rajesh Sharma',
-    role: 'Site Engineer, Sharma Constructions',
-    text: 'SSN has been our go-to lab for all material testing. Fast turnaround and detailed reports every time.',
+    name: "James Carter",
+    role: "Project Engineer, Carter & Associates",
+    text: "SSN delivered our soil and concrete test reports within 24 hours. The accuracy and detail in the reports gave us full confidence during the foundation inspection.",
   },
   {
     id: 2,
-    name: 'Anita Gurung',
-    role: 'Project Manager, BuildRight Nepal',
-    text: 'Professional, accurate, and always on time. Their soil testing reports helped us design a safe foundation.',
+    name: "Michael Thompson",
+    role: "Site Manager, Apex Construction Group",
+    text: "We've worked with several testing labs across Virginia, but SSN stands out for their turnaround time and the clarity of their reports. Our DOT submissions have never been smoother.",
   },
   {
     id: 3,
-    name: 'Bikash Thapa',
-    role: 'Civil Engineer, Infrastructure Dept.',
-    text: 'We trust SSN for all government project testing. Their accreditation gives us full confidence in results.',
+    name: "David Hartley",
+    role: "Structural Engineer, Hartley & Burns LLC",
+    text: "The Marshall stability and asphalt testing results were thorough and well-documented. SSN's team was professional and responsive throughout the project.",
   },
-]
+  {
+    id: 4,
+    name: "Robert Simmons",
+    role: "Civil Engineer, BlueLine Infrastructure",
+    text: "SSN handled our full geotechnical testing package for a highway project. Reliable, fast, and their reports are accepted without question by all regulatory bodies.",
+  },
+];
 
 export const CERTIFICATIONS = [
   { label: 'ISO 9001:2015', desc: 'Quality Management' },
@@ -86,8 +93,8 @@ export const CERTIFICATIONS = [
 ]
 
 export const CONTACT_INFO = {
-  address: 'Kathmandu, Nepal',
-  phone: '+977-1-XXXXXXX',
-  email: 'info@ssnmaterialtesting.com',
+  address: '5540 Centerview Dr, Ste #304 Raleigh, NC 27606',
+  phone: '(919) 703-0222',
+  email: 'contact@ssncorporation.com',
   hours: 'Mon–Sat: 8am – 6pm',
 }

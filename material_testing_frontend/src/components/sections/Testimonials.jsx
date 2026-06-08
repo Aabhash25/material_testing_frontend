@@ -1,56 +1,123 @@
+import { useState } from "react";
 import { TESTIMONIALS } from "../../data/siteData";
 
 export default function Testimonials() {
+  const [active, setActive] = useState(0);
+  const t = TESTIMONIALS[active];
+
   return (
-    <section className="bg-primary py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="mb-14 text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-8 h-0.5 bg-accent" />
-            <span className="font-ui text-accent text-xs font-semibold uppercase tracking-[3px]">
-              Client Feedback
-            </span>
-            <div className="w-8 h-0.5 bg-accent" />
-          </div>
-          <h2
-            className="font-display font-extrabold text-white leading-none"
-            style={{ fontSize: "clamp(36px, 5vw, 56px)" }}
-          >
-            WHAT OUR CLIENTS SAY
-          </h2>
-        </div>
+    <section className="bg-primary border-b border-white/10">
+      {/* ── Header strip ── */}
+      <div className="px-10 md:px-16 pt-16 pb-12 flex items-center gap-3">
+        <div className="w-8 h-0.5 bg-accent" />
+        <span className="font-ui text-accent text-xs font-semibold uppercase tracking-[3px]">
+          Client Feedback
+        </span>
+      </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {TESTIMONIALS.map((t) => (
+      {/* ── Two-column body ── */}
+      <div
+        className="flex flex-col md:flex-row border-t border-white/10"
+        style={{ minHeight: "420px" }}
+      >
+        {/* LEFT — active big quote */}
+        <div className="md:w-3/5 flex flex-col justify-between px-10 md:px-16 py-14 border-b md:border-b-0 md:border-r border-white/10">
+          <div>
+            {/* Giant quote mark */}
             <div
-              key={t.id}
-              className="bg-white/5 border border-white/10 rounded-lg p-8 hover:bg-white/10 transition-all duration-300"
+              className="font-display text-accent leading-none mb-8 select-none"
+              style={{
+                fontSize: "clamp(80px, 10vw, 120px)",
+                lineHeight: "0.7",
+              }}
             >
-              {/* Quote mark */}
-              <div className="font-display text-accent text-6xl leading-none mb-4">
-                "
+              "
+            </div>
+
+            {/* Quote text */}
+            <p
+              className="font-body text-white/80 leading-relaxed mb-10"
+              style={{ fontSize: "clamp(16px, 2vw, 22px)" }}
+            >
+              {t.text}
+            </p>
+          </div>
+
+          {/* Author */}
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-accent flex items-center justify-center font-display text-white font-extrabold text-xl shrink-0">
+              {t.name.charAt(0)}
+            </div>
+            <div>
+              <div className="font-ui text-white font-bold text-sm">
+                {t.name}
               </div>
-
-              {/* Text */}
-              <p className="font-body text-white/70 text-sm leading-relaxed mb-8">
-                {t.text}
-              </p>
-
-              {/* Author */}
-              <div className="flex items-center gap-3 border-t border-white/10 pt-6">
-                <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center font-display text-white font-bold text-lg">
-                  {t.name.charAt(0)}
-                </div>
-                <div>
-                  <div className="font-ui text-white text-sm font-semibold">
-                    {t.name}
-                  </div>
-                  <div className="font-ui text-white/40 text-xs">{t.role}</div>
-                </div>
+              <div className="font-ui text-white/40 text-xs uppercase tracking-[1.5px] mt-0.5">
+                {t.role}
               </div>
             </div>
+            <div className="ml-4 w-8 h-0.5 bg-accent" />
+          </div>
+        </div>
+
+        {/* RIGHT — client list */}
+        <div className="md:w-2/5 flex flex-col justify-center">
+          <div className="px-10 md:px-12 py-6 border-b border-white/10">
+            <h2
+              className="font-display text-white font-extrabold leading-none"
+              style={{
+                fontSize: "clamp(28px, 3.5vw, 44px)",
+                letterSpacing: "-1px",
+              }}
+            >
+              WHAT OUR
+              <br />
+              <span className="text-accent">CLIENTS SAY</span>
+            </h2>
+          </div>
+
+          {TESTIMONIALS.map((item, i) => (
+            <button
+              key={item.id}
+              onClick={() => setActive(i)}
+              className={`w-full text-left px-10 md:px-12 py-6 border-b border-white/10 flex items-center gap-5 transition-all duration-200 group ${
+                active === i ? "bg-white/5" : "hover:bg-white/3"
+              }`}
+            >
+              {/* Active indicator */}
+              <div
+                className={`w-0.5 self-stretch shrink-0 transition-all duration-200 ${active === i ? "bg-accent" : "bg-transparent"}`}
+              />
+
+              {/* Avatar */}
+              <div
+                className={`w-10 h-10 flex items-center justify-center font-display font-extrabold text-base shrink-0 transition-all duration-200 ${
+                  active === i
+                    ? "bg-accent text-white"
+                    : "bg-white/10 text-white/50"
+                }`}
+              >
+                {item.name.charAt(0)}
+              </div>
+
+              <div className="flex-1 min-w-0">
+                <div
+                  className={`font-ui text-sm font-bold truncate transition-colors duration-200 ${active === i ? "text-white" : "text-white/50"}`}
+                >
+                  {item.name}
+                </div>
+                <div className="font-ui text-white/30 text-xs uppercase tracking-[1.5px] mt-0.5 truncate">
+                  {item.role}
+                </div>
+              </div>
+
+              {/* Arrow */}
+              <span
+                className={`font-ui text-xs transition-all duration-200 shrink-0 ${active === i ? "text-accent" : "text-white/20 group-hover:text-white/40"}`}
+              >
+                →
+              </span>
+            </button>
           ))}
         </div>
       </div>
