@@ -1,5 +1,34 @@
 import aboutIllustration from "../assets/images/Construction-amico.svg";
 
+// ── Add your 12 lab photos here ──
+import lab1 from "../assets/images/lab/01.jpeg";
+import lab2 from "../assets/images/lab/02.jpeg";
+import lab3 from "../assets/images/lab/03.jpeg";
+import lab4 from "../assets/images/lab/04.jpeg";
+import lab5 from "../assets/images/lab/05.jpeg";
+import lab6 from "../assets/images/lab/06.jpeg";
+import lab7 from "../assets/images/lab/07.jpeg";
+import lab8 from "../assets/images/lab/08.jpeg";
+import lab9 from "../assets/images/lab/09.jpeg";
+import lab10 from "../assets/images/lab/10.jpeg";
+import lab11 from "../assets/images/lab/11.jpeg";
+import lab12 from "../assets/images/lab/12.jpeg";
+
+const LAB_PHOTOS = [
+  lab1,
+  lab2,
+  lab3,
+  lab4,
+  lab5,
+  lab6,
+  lab7,
+  lab8,
+  lab9,
+  lab10,
+  lab11,
+  lab12,
+];
+
 const WHY_US = [
   {
     num: "01",
@@ -100,6 +129,76 @@ export default function About() {
           ))}
         </div>
       </div>
+
+      {/* ── LAB PHOTOS ── */}
+      <section className="bg-bg border-b border-gray-200 py-16 px-6">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-8 h-0.5 bg-accent" />
+            <span className="font-ui text-accent text-xs font-semibold uppercase tracking-[3px]">
+              Inside Our Lab
+            </span>
+          </div>
+          <h2
+            className="font-display text-primary font-extrabold leading-none mb-10"
+            style={{
+              fontSize: "clamp(24px, 3.5vw, 42px)",
+              letterSpacing: "-1px",
+            }}
+          >
+            OUR <span className="text-accent">FACILITY</span>
+          </h2>
+
+          {/* Photo grid — 4 cols on desktop, 2 on mobile */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+            {/* First photo spans 2 cols + 2 rows — hero shot */}
+            <div
+              className="col-span-2 row-span-2 relative overflow-hidden group"
+              style={{ aspectRatio: "1 / 1" }}
+            >
+              <img
+                src={LAB_PHOTOS[0]}
+                alt="Lab facility"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </div>
+
+            {/* Remaining 8 photos in single cells */}
+            {LAB_PHOTOS.slice(1, 9).map((photo, i) => (
+              <div
+                key={i}
+                className="relative overflow-hidden group"
+                style={{ aspectRatio: "1 / 1" }}
+              >
+                <img
+                  src={photo}
+                  alt={`Lab photo ${i + 2}`}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            ))}
+
+            {/* Last row — remaining 3 photos each span wider */}
+            {LAB_PHOTOS.slice(9, 12).map((photo, i) => (
+              <div
+                key={i + 9}
+                className="relative overflow-hidden group col-span-1 md:col-span-1"
+                style={{ aspectRatio: "4 / 3" }}
+              >
+                <img
+                  src={photo}
+                  alt={`Lab photo ${i + 10}`}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── MISSION — image left ── */}
       <section
@@ -203,10 +302,9 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── WHY CHOOSE US — redesigned ── */}
+      {/* ── WHY CHOOSE US ── */}
       <section className="bg-bg border-b border-gray-200 py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          {/* Section label */}
           <div className="flex items-center gap-3 mb-4">
             <div className="w-8 h-0.5 bg-accent" />
             <span className="font-ui text-accent text-xs font-semibold uppercase tracking-[3px]">
@@ -223,14 +321,12 @@ export default function About() {
             WHY CHOOSE <span className="text-accent">US</span>
           </h2>
 
-          {/* 2x2 grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-200">
             {WHY_US.map((item) => (
               <div
                 key={item.num}
                 className="bg-white hover:bg-bg transition-colors duration-200 px-10 py-10 flex flex-col gap-4 group"
               >
-                {/* Number + title row */}
                 <div className="flex items-center gap-4">
                   <span
                     className="font-display font-extrabold leading-none text-gray-100 group-hover:text-accent/20 transition-colors duration-200 select-none"
@@ -252,9 +348,7 @@ export default function About() {
                     {item.title}
                   </h4>
                 </div>
-                {/* Accent line */}
                 <div className="w-8 h-0.5 bg-accent" />
-                {/* Description */}
                 <p className="font-body text-gray-500 text-sm leading-relaxed">
                   {item.desc}
                 </p>

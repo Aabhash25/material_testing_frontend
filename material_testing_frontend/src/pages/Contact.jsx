@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CONTACT_INFO } from "../data/siteData";
 import contactIllustration from "../assets/images/Contact us-bro.svg";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -11,13 +12,47 @@ export default function Contact() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+
+    const templateParams = {
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      service: form.service,
+      message: form.message,
+    };
+
+    try {
+      // Email 1 — Notification to YOU
+      await emailjs.send(
+        "service_bggjqno",
+        "template_shej48i",
+        templateParams,
+        "FfbeEFM5Nu1xMYqzD",
+      );
+
+      // Email 2 — Thank-you email to USER
+      await emailjs.send(
+        "service_bggjqno",
+        "template_rlylecq",
+        templateParams,
+        "FfbeEFM5Nu1xMYqzD",
+      );
+
+      setSubmitted(true);
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -100,9 +135,24 @@ export default function Contact() {
                   MESSAGE SENT!
                 </h3>
                 <p className="font-body text-gray-500 text-sm">
-                  Thank you for reaching out. We'll get back to you within 24
-                  hours.
+                  Thank you for reaching out. A confirmation email has been sent
+                  to you. We'll get back to you within 24 hours.
                 </p>
+                <button
+                  onClick={() => {
+                    setSubmitted(false);
+                    setForm({
+                      name: "",
+                      email: "",
+                      phone: "",
+                      service: "",
+                      message: "",
+                    });
+                  }}
+                  className="mt-6 font-ui text-sm font-bold uppercase tracking-wider border border-accent text-accent hover:bg-accent hover:text-white px-6 py-3 rounded transition-all duration-200"
+                >
+                  Send Another Message
+                </button>
               </div>
             ) : (
               <>
@@ -193,9 +243,10 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    className="font-ui text-sm font-bold uppercase tracking-wider bg-accent hover:bg-accent-light text-white px-8 py-4 rounded transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg self-start"
+                    disabled={loading}
+                    className="font-ui text-sm font-bold uppercase tracking-wider bg-accent hover:bg-accent-light text-white px-8 py-4 rounded transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg self-start disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Send Message →
+                    {loading ? "Sending..." : "Send Message →"}
                   </button>
                 </form>
               </>

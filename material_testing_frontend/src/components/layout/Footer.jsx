@@ -25,8 +25,8 @@ export default function Footer() {
             </div>
           </div>
           <p className="font-body text-sm leading-relaxed text-white/50 max-w-xs">
-            Trusted material testing laboratory delivering accurate, reliable
-            results for construction projects.
+            Independent material testing laboratory delivering accurate,
+            reliable results for construction projects.
           </p>
         </div>
 

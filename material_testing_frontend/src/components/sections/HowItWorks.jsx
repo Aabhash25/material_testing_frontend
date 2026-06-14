@@ -8,34 +8,26 @@ const STEPS = [
   {
     num: "01",
     title: "Submit Your Request",
-    desc: "Contact us with your project details and material type. We'll confirm the required tests and provide a quick quote within hours.",
-    detail: [
-      "Fill out our contact form or call directly",
-      "Specify material type and project scope",
-      "Receive quote within a few hours",
-    ],
+    desc: "Contact us with your project information and test requirements.",
+    note: {
+      text: "First time client? Please fill out our contact form or call directly for fee schedule.",
+      linkLabel: "Contact Form →",
+      linkTo: "/contact",
+    },
     lottie: submitAnim,
   },
   {
     num: "02",
     title: "We Test Your Samples",
     desc: "Bring your samples to our lab or request on-site collection. Our certified engineers conduct tests using calibrated equipment.",
-    detail: [
-      "Drop off or we collect from site",
-      "Tests run by certified engineers",
-      "Equipment calibrated to IS, ASTM & BS standards",
-    ],
+    note: null,
     lottie: labAnim,
   },
   {
     num: "03",
     title: "Receive Your Report",
-    desc: "Get a detailed, authority-accepted test report within 24–48 hours — digitally delivered and ready for submission.",
-    detail: [
-      "Report delivered in 24–48 hours",
-      "Accepted by all government bodies",
-      "Digital copy + hard copy available",
-    ],
+    desc: "We deliver your certified test report as soon as 48 hours — digitally delivered and ready for submission to any authority.",
+    note: null,
     lottie: reportAnim,
   },
 ];
@@ -73,24 +65,14 @@ export default function HowItWorks() {
         <div
           key={step.num}
           className="flex flex-col md:flex-row border-t border-gray-200"
-          style={{ minHeight: "320px" }}
         >
-          {/* Number Panel - Left */}
-          <div className="md:w-1/3 flex items-center px-10 md:px-16 py-10 bg-white">
+          {/* Title Panel - Left */}
+          <div className="md:w-1/3 flex items-center px-10 md:px-16 py-12 bg-white">
             <div>
-              <div
-                className="font-display font-extrabold leading-none mb-3 text-gray-100"
-                style={{
-                  fontSize: "clamp(64px, 8vw, 96px)",
-                  letterSpacing: "-3px",
-                }}
-              >
-                {step.num}
-              </div>
               <h3
                 className="font-display font-extrabold leading-tight text-primary"
                 style={{
-                  fontSize: "clamp(18px, 2vw, 26px)",
+                  fontSize: "clamp(20px, 2.2vw, 28px)",
                   letterSpacing: "-0.5px",
                 }}
               >
@@ -100,32 +82,42 @@ export default function HowItWorks() {
             </div>
           </div>
 
-          {/* Content Panel - Right with Lottie */}
-          <div className="md:w-2/3 flex flex-col md:flex-row px-10 md:px-16 py-10 bg-bg border-t md:border-t-0 md:border-l border-gray-200 gap-10">
-            {/* Text Content */}
+          {/* Content Panel - Right */}
+          <div className="md:w-2/3 flex flex-col md:flex-row items-center px-10 md:px-16 py-12 bg-bg border-t md:border-t-0 md:border-l border-gray-200 gap-10">
+            {/* Text */}
             <div className="flex-1 flex flex-col justify-center">
-              <p className="font-body text-gray-500 text-sm leading-relaxed mb-8 max-w-lg">
+              <p
+                className="font-body text-gray-600 leading-relaxed max-w-lg"
+                style={{ fontSize: "clamp(14px, 1.1vw, 16px)" }}
+              >
                 {step.desc}
               </p>
-              <div className="flex flex-col gap-3">
-                {step.detail.map((d, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <div className="w-4 h-px bg-accent mt-2 flex-shrink-0" />
-                    <span className="font-ui text-primary text-xs font-medium leading-snug">
-                      {d}
-                    </span>
-                  </div>
-                ))}
-              </div>
+
+              {step.note && (
+                <div className="mt-5 flex items-start gap-3 border-l-2 border-accent/50 pl-4 py-1">
+                  <p
+                    className="font-body text-gray-400 leading-relaxed"
+                    style={{ fontSize: "clamp(13px, 1vw, 15px)" }}
+                  >
+                    {step.note.text}{" "}
+                    <Link
+                      to={step.note.linkTo}
+                      className="text-accent font-semibold hover:underline whitespace-nowrap"
+                    >
+                      {step.note.linkLabel}
+                    </Link>
+                  </p>
+                </div>
+              )}
             </div>
 
-            {/* Lottie Animation — inside the content panel */}
-            <div className="flex-shrink-0 flex items-center justify-center w-full md:w-56 lg:w-64">
+            {/* Lottie Animation */}
+            <div className="shrink-0 flex items-center justify-center w-full md:w-48 lg:w-56">
               <Player
                 autoplay
                 loop
                 src={step.lottie}
-                style={{ height: "200px", width: "200px" }}
+                style={{ height: "180px", width: "180px" }}
               />
             </div>
           </div>
