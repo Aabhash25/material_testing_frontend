@@ -80,9 +80,8 @@ export default function About() {
             </h1>
             <p className="font-body text-white/60 text-base leading-relaxed max-w-lg">
               SSN Material Testing Laboratory has been serving the construction
-              industry in Nepal for over 15 years. We provide certified,
-              accurate, and timely test reports that engineers and contractors
-              trust.
+              industry in Georgia. We provide certified, accurate, and timely
+              test reports that engineers and contractors trust.
             </p>
           </div>
 
