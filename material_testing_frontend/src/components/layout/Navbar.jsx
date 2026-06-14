@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../assets/images/ssn.png";
+import logo from "../../assets/images/ssn.webp";
 
 const NAV_LINKS = [
   { label: "Home", path: "/" },
