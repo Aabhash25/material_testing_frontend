@@ -47,12 +47,7 @@ export default function Navbar() {
               {link.label}
             </NavLink>
           ))}
-          <Link
-            to="/contact"
-            className="font-ui text-sm font-bold uppercase tracking-wider bg-accent hover:bg-accent-light text-white px-5 py-2.5 rounded transition-all duration-200 hover:-translate-y-0.5"
-          >
-            Get a Quote
-          </Link>
+
         </nav>
 
         {/* Hamburger */}
