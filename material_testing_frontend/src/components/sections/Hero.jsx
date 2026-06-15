@@ -60,18 +60,13 @@ export default function Hero() {
           </div>
 
           <div className="flex flex-wrap justify-center lg:justify-start gap-4 font-ui">
-            <Link
-              to="/services"
-              className="bg-accent hover:bg-accent-light px-7 py-3 rounded-md font-semibold uppercase tracking-wider transition"
-            >
-              Request Testing
-            </Link>
-            <Link
-              to="/contact"
-              className="border border-white/30 hover:border-white px-7 py-3 rounded-md font-semibold uppercase tracking-wider transition"
-            >
-              Contact Us
-            </Link>
+
+<Link
+  to="/contact"
+  className="bg-accent text-white hover:bg-accent/90 px-7 py-3 rounded-md font-semibold uppercase tracking-wider transition"
+>
+  Contact Us
+</Link>
           </div>
         </div>
 
