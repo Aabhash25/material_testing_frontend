@@ -10,7 +10,7 @@ const STEPS = [
     title: "Submit Your Request",
     desc: "Contact us with your project information and test requirements.",
     note: {
-      text: "First time client? Please fill out our contact form or call directly for fee schedule.",
+      text: "First time client? Please fill out our contact form or call directly for fee schedules.",
       linkLabel: "Contact Form →",
       linkTo: "/contact",
     },
