@@ -54,7 +54,7 @@ export default function Hero() {
               </span>
               <span className="flex items-center gap-2 border border-accent/30 bg-accent/10 px-4 py-1.5 rounded-sm text-xs font-ui text-white/80 uppercase tracking-wider">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-                Concrete Strength Test
+                Concrete Strength Tests
               </span>
             </div>
           </div>
