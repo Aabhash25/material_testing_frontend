@@ -6,7 +6,7 @@ const NAV_LINKS = [
   { label: "Home", path: "/" },
   { label: "Services", path: "/services" },
   { label: "About", path: "/about" },
-  { label: "Contact", path: "/contact" },
+  { label: "Our Team", path: "/team" },
 ];
 
 export default function Navbar() {
@@ -48,6 +48,13 @@ export default function Navbar() {
             </NavLink>
           ))}
 
+          {/* Contact CTA */}
+          <Link
+            to="/contact"
+            className="font-ui text-sm font-bold uppercase tracking-wider bg-accent hover:bg-accent/90 text-white px-5 py-2.5 rounded transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+          >
+            Contact Us
+          </Link>
         </nav>
 
         {/* Hamburger */}
@@ -90,7 +97,7 @@ export default function Navbar() {
             onClick={() => setMenuOpen(false)}
             className="font-ui text-sm font-bold uppercase tracking-wider bg-accent text-white px-5 py-3 rounded text-center"
           >
-            Get a Quote
+            Contact Us
           </Link>
         </div>
       )}

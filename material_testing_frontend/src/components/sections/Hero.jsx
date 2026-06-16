@@ -3,10 +3,52 @@ import lab1 from "../../assets/images/lab/01.jpeg";
 import lab2 from "../../assets/images/lab/02.jpeg";
 import lab3 from "../../assets/images/lab/03.jpeg";
 
+const CREDENTIALS = [
+  {
+    label: "Women Owned",
+    sub: "Certified Business",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
+        <path d="M12 2a5 5 0 100 10A5 5 0 0012 2zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Georgia Sole Entity",
+    sub: "SSN Corporation",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Fast Turnaround",
+    sub: "Reports as soon as 48 Hours",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
+        <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Lab",
+    sub: "1,600 Sq. Ft. Facility",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
+      </svg>
+    ),
+  },
+];
+
 export default function Hero() {
   return (
     <>
-      <section className="relative flex items-center overflow-hidden bg-primary text-white">
+      <section
+        className="relative flex items-center overflow-hidden bg-primary text-white"
+        style={{ minHeight: "calc(100vh - 56px)" }}
+      >
         <div className="absolute left-0 top-0 h-full w-1 bg-accent z-20" />
         <div
           className="absolute inset-0 opacity-[0.04]"
@@ -16,8 +58,7 @@ export default function Hero() {
             backgroundSize: "28px 28px",
           }}
         />
-
-        <div className="relative max-w-6xl mx-auto px-6 pt-30 pb-10 flex flex-col lg:flex-row items-center gap-10">
+        <div className="relative max-w-6xl mx-auto px-6 pt-32 pb-10 flex flex-col lg:flex-row items-center gap-10">
           {/* LEFT */}
           <div className="flex-1 text-center lg:text-left">
             <div className="mb-6">
@@ -121,76 +162,51 @@ export default function Hero() {
       </section>
 
       {/* ── Credentials bar ── */}
-      {/* ── Credentials bar ── */}
-      <div className="bg-accent px-10 md:px-16 py-4 flex flex-wrap justify-between items-center gap-4">
-        <div className="flex items-center gap-4">
-          <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-            <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
-              <path d="M12 2a5 5 0 100 10A5 5 0 0012 2zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z" />
-            </svg>
-          </div>
-          <div>
-            <div className="font-display text-white font-extrabold text-sm uppercase tracking-widest leading-none">
-              Women Owned
+      <div className="bg-accent">
+        {/* Mobile: 2x2 grid with hairline dividers */}
+        <div className="grid grid-cols-2 gap-px bg-white/20 md:hidden">
+          {CREDENTIALS.map((c, i) => (
+            <div
+              key={i}
+              className="bg-accent flex items-center gap-3 px-5 py-5"
+            >
+              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                {c.icon}
+              </div>
+              <div>
+                <div className="font-display text-white font-extrabold text-xs uppercase tracking-widest leading-none">
+                  {c.label}
+                </div>
+                <div className="font-ui text-white/70 text-[10px] uppercase tracking-[1.5px] mt-0.5">
+                  {c.sub}
+                </div>
+              </div>
             </div>
-            <div className="font-ui text-white/70 text-[10px] uppercase tracking-[2px] mt-0.5">
-              Certified Business
-            </div>
-          </div>
+          ))}
         </div>
 
-        <div className="w-px h-8 bg-white/20 hidden md:block"></div>
-
-        <div className="flex items-center gap-4">
-          <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-            <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-            </svg>
-          </div>
-          <div>
-            <div className="font-display text-white font-extrabold text-sm uppercase tracking-widest leading-none">
-              Georgia Sole Entity
-            </div>
-            <div className="font-ui text-white/70 text-[10px] uppercase tracking-[2px] mt-0.5">
-              SSN Corporation
-            </div>
-          </div>
-        </div>
-
-        <div className="w-px h-8 bg-white/20 hidden md:block"></div>
-
-        <div className="flex items-center gap-4">
-          <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-            <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
-              <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
-            </svg>
-          </div>
-          <div>
-            <div className="font-display text-white font-extrabold text-sm uppercase tracking-widest leading-none">
-              Fast Turnaround
-            </div>
-            <div className="font-ui text-white/70 text-[10px] uppercase tracking-[2px] mt-0.5">
-              Reports in 48 Hours
-            </div>
-          </div>
-        </div>
-
-        <div className="w-px h-8 bg-white/20 hidden md:block"></div>
-
-        <div className="flex items-center gap-4">
-          <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-            <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
-              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
-            </svg>
-          </div>
-          <div>
-            <div className="font-display text-white font-extrabold text-sm uppercase tracking-widest leading-none">
-              Certified Lab
-            </div>
-            <div className="font-ui text-white/70 text-[10px] uppercase tracking-[2px] mt-0.5">
-              1,600 Sq. Ft. Facility
-            </div>
-          </div>
+        {/* Desktop: original horizontal layout */}
+        <div className="hidden md:flex justify-between items-center px-16 py-4 gap-4">
+          {CREDENTIALS.map((c, i) => (
+            <>
+              <div key={i} className="flex items-center gap-4">
+                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                  {c.icon}
+                </div>
+                <div>
+                  <div className="font-display text-white font-extrabold text-sm uppercase tracking-widest leading-none">
+                    {c.label}
+                  </div>
+                  <div className="font-ui text-white/70 text-[10px] uppercase tracking-[2px] mt-0.5">
+                    {c.sub}
+                  </div>
+                </div>
+              </div>
+              {i < CREDENTIALS.length - 1 && (
+                <div className="w-px h-8 bg-white/20"></div>
+              )}
+            </>
+          ))}
         </div>
       </div>
     </>

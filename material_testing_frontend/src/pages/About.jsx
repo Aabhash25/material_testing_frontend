@@ -1,6 +1,5 @@
 import aboutIllustration from "../assets/images/Construction-amico.svg";
 
-// ── Add your 12 lab photos here ──
 import lab1 from "../assets/images/lab/01.jpeg";
 import lab2 from "../assets/images/lab/02.jpeg";
 import lab3 from "../assets/images/lab/03.jpeg";
@@ -29,6 +28,13 @@ const LAB_PHOTOS = [
   lab12,
 ];
 
+const TICKER_ITEMS = [
+  { label: "Women Owned", sub: "Certified Business" },
+  { label: "Georgia", sub: "Sole Entity" },
+  { label: "Fast Turnaround", sub: "Reports in 48 Hours" },
+  { label: "Lab", sub: "1,600 Sq. Ft. Facility" },
+];
+
 const WHY_US = [
   {
     num: "01",
@@ -50,12 +56,6 @@ const WHY_US = [
     title: "Detailed Reports",
     desc: "Clear, comprehensive reports structured for engineers, contractors, and regulatory bodies.",
   },
-];
-
-const STATS = [
-  { val: "15+", lbl: "Years Experience" },
-  { val: "500+", lbl: "Projects Tested" },
-  { val: "50+", lbl: "Test Types" },
 ];
 
 export default function About() {
@@ -85,7 +85,6 @@ export default function About() {
             </p>
           </div>
 
-          {/* SVG illustration */}
           <div className="flex-1 flex items-center justify-center relative">
             <div
               className="absolute inset-0 pointer-events-none"
@@ -113,17 +112,22 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── STATS STRIP ── */}
-      <div className="bg-accent">
-        <div className="max-w-6xl mx-auto px-6 py-5 flex flex-wrap items-center gap-10 md:gap-20">
-          {STATS.map((s) => (
-            <div key={s.lbl} className="flex items-baseline gap-3">
-              <span className="font-display text-white font-extrabold text-3xl leading-none">
-                {s.val}
-              </span>
-              <span className="font-ui text-white/75 text-xs uppercase tracking-[2px]">
-                {s.lbl}
-              </span>
+      {/* ── STRIP ── */}
+      <div className="bg-accent py-5 px-10 md:px-16">
+        <div className="flex flex-wrap items-center justify-between gap-y-4">
+          {TICKER_ITEMS.map((item, i) => (
+            <div key={i} className="flex items-center gap-8">
+              <div className="flex flex-col leading-tight">
+                <span className="font-display text-white font-extrabold text-sm uppercase tracking-wide">
+                  {item.label}
+                </span>
+                <span className="font-ui text-white/70 text-[11px] uppercase tracking-[1.5px]">
+                  {item.sub}
+                </span>
+              </div>
+              {i < TICKER_ITEMS.length - 1 && (
+                <span className="text-white/30 text-lg">·</span>
+              )}
             </div>
           ))}
         </div>
@@ -132,7 +136,6 @@ export default function About() {
       {/* ── LAB PHOTOS ── */}
       <section className="bg-bg border-b border-gray-200 py-16 px-6">
         <div className="max-w-6xl mx-auto">
-          {/* Header */}
           <div className="flex items-center gap-3 mb-4">
             <div className="w-8 h-0.5 bg-accent" />
             <span className="font-ui text-accent text-xs font-semibold uppercase tracking-[3px]">
@@ -149,9 +152,7 @@ export default function About() {
             OUR <span className="text-accent">FACILITY</span>
           </h2>
 
-          {/* Photo grid — 4 cols on desktop, 2 on mobile */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-            {/* First photo spans 2 cols + 2 rows — hero shot */}
             <div
               className="col-span-2 row-span-2 relative overflow-hidden group"
               style={{ aspectRatio: "1 / 1" }}
@@ -163,8 +164,6 @@ export default function About() {
               />
               <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
-
-            {/* Remaining 8 photos in single cells */}
             {LAB_PHOTOS.slice(1, 9).map((photo, i) => (
               <div
                 key={i}
@@ -179,8 +178,6 @@ export default function About() {
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             ))}
-
-            {/* Last row — remaining 3 photos each span wider */}
             {LAB_PHOTOS.slice(9, 12).map((photo, i) => (
               <div
                 key={i + 9}
@@ -199,7 +196,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── MISSION — image left ── */}
+      {/* ── MISSION ── */}
       <section
         className="flex flex-col md:flex-row border-b border-gray-200"
         style={{ minHeight: "420px" }}
@@ -250,7 +247,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── VISION — image right ── */}
+      {/* ── VISION ── */}
       <section
         className="flex flex-col md:flex-row-reverse border-b border-gray-200"
         style={{ minHeight: "420px" }}
@@ -319,7 +316,6 @@ export default function About() {
           >
             WHY CHOOSE <span className="text-accent">US</span>
           </h2>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-200">
             {WHY_US.map((item) => (
               <div
