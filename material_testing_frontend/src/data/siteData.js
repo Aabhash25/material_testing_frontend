@@ -93,8 +93,8 @@ export const CERTIFICATIONS = [
 ]
 
 export const CONTACT_INFO = {
-  address: '5540 Centerview Dr, Ste #304 Raleigh, NC 27606',
-  phone: '(919) 703-0222',
-  email: 'contact@ssncorporation.com',
-  hours: 'Mon–Sat: 8am – 6pm',
+  address: '6500 McDonough Dr, Suite E-04, Norcross, Georgia 30093',
+  phone: '(470) 504-5962',
+  email: 'ssnmaterialtesting@gmail.com',
+  hours: 'Mon–Sat: 9am – 5pm',
 }

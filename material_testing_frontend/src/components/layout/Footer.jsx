@@ -55,10 +55,26 @@ export default function Footer() {
             Contact Us
           </h4>
           <ul className="flex flex-col gap-3 font-body text-sm text-white/50">
-            <li>📍 5540 Centerview Dr, Ste #304 Raleigh, NC 27606</li>
-            <li>📞 (919) 703-0222</li>
-            <li>✉️ contact@ssncorporation.com</li>
-            <li>🕐 Mon–Sat: 8am – 6pm</li>
+            <li>📍 6500 McDonough Dr, Suite E-04, Norcross, Georgia 30093</li>
+            <li>
+              📞{" "}
+              <a
+                href="tel:4705045962"
+                className="hover:text-accent transition-colors duration-200"
+              >
+                (470) 504-5962
+              </a>
+            </li>
+            <li>
+              ✉️{" "}
+              <a
+                href="mailto:ssnmaterialtesting@gmail.com"
+                className="hover:text-accent transition-colors duration-200"
+              >
+                ssnmaterialtesting@gmail.com
+              </a>
+            </li>
+            <li>🕐 Mon–Fri: 9:00 AM – 5:00 PM</li>
           </ul>
         </div>
       </div>
