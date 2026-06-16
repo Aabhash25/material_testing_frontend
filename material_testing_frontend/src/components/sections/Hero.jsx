@@ -54,19 +54,18 @@ export default function Hero() {
               </span>
               <span className="flex items-center gap-2 border border-accent/30 bg-accent/10 px-4 py-1.5 rounded-sm text-xs font-ui text-white/80 uppercase tracking-wider">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-                Concrete Strength Tests
+                Concrete Strength Test
               </span>
             </div>
           </div>
 
           <div className="flex flex-wrap justify-center lg:justify-start gap-4 font-ui">
-
-<Link
-  to="/contact"
-  className="bg-accent text-white hover:bg-accent/90 px-7 py-3 rounded-md font-semibold uppercase tracking-wider transition"
->
-  Contact Us
-</Link>
+            <Link
+              to="/contact"
+              className="bg-accent text-white hover:bg-accent/90 px-7 py-3 rounded-md font-semibold uppercase tracking-wider transition"
+            >
+              Contact Us
+            </Link>
           </div>
         </div>
 
