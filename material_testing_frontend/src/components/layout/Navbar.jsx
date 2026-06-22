@@ -6,7 +6,7 @@ const NAV_LINKS = [
   { label: "Home", path: "/" },
   { label: "Services", path: "/services" },
   { label: "About", path: "/about" },
-  { label: "Our Team", path: "/team" },
+  // { label: "Our Team", path: "/team" },
 ];
 
 export default function Navbar() {

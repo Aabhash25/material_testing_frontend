@@ -6,7 +6,7 @@ import Services from "./pages/Services";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import PageLoader from "./components/layout/PageLoader";
-import Team from "./pages/Team";
+// import Team from "./pages/Team";
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function App() {
           <Route path="services" element={<Services />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="team" element={<Team />} />
+          {/* <Route path="team" element={<Team />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>
