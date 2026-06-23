@@ -69,20 +69,19 @@ export default function Hero() {
                 </span>
               </div>
               <p className="font-ui text-white/40 text-[10px] uppercase tracking-[2px] text-center lg:text-left lg:pl-13">
-                An independent soil / geotechnical / construction material
-                testing laboratory
+                Construction Material Testing Laboratory
               </p>
             </div>
 
             <h1 className="font-display font-extrabold leading-tight text-[clamp(42px,6vw,72px)] mb-6">
-              Certified Material
+              Independent & Certified Material
               <br />
-              Testing & <span className="text-accent">Quality Assurance</span>
+              Testing & <span className="text-accent">Laboratory</span>
             </h1>
 
             <p className="font-body text-white/70 text-lg max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
-              Accurate testing for concrete, soil, asphalt, and construction
-              materials.
+              Accurate testing for Soils, Aggregate, Concrete, Asphalt and
+              Others
             </p>
 
             <div className="mb-8 border-l-2 border-accent/40 pl-4">
@@ -92,11 +91,19 @@ export default function Hero() {
               <div className="flex flex-wrap gap-2">
                 <span className="flex items-center gap-2 border border-accent/30 bg-accent/10 px-4 py-1.5 rounded-sm text-xs font-ui text-white/80 uppercase tracking-wider">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-                  Soil Index & Strength Tests
+                  SOILS & AGGREGATE INDEX TESTS
                 </span>
                 <span className="flex items-center gap-2 border border-accent/30 bg-accent/10 px-4 py-1.5 rounded-sm text-xs font-ui text-white/80 uppercase tracking-wider">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-                  Concrete Strength Tests
+                  Concrete Tests
+                </span>
+                <span className="flex items-center gap-2 border border-accent/30 bg-accent/10 px-4 py-1.5 rounded-sm text-xs font-ui text-white/80 uppercase tracking-wider">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                  SOILS & AGGREGATE STRENGTH TESTS
+                </span>
+                <span className="flex items-center gap-2 border border-accent/30 bg-accent/10 px-4 py-1.5 rounded-sm text-xs font-ui text-white/80 uppercase tracking-wider">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                  Asphalt Tests
                 </span>
               </div>
             </div>
