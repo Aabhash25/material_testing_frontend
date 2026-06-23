@@ -96,5 +96,5 @@ export const CONTACT_INFO = {
   address: '6500 McDonough Dr, Suite E-04, Norcross, Georgia 30093',
   phone: '(470) 504-5962',
   email: 'ssnmaterialtesting@gmail.com',
-  hours: 'Mon–Sat: 9am – 5pm',
+  hours: 'Mon–Sat: 7am – 4pm',
 }

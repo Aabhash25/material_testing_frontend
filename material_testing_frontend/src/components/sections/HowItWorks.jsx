@@ -115,7 +115,7 @@ export default function HowItWorks() {
           <div className="lg:col-span-7">
             <div className="flex flex-col gap-6 relative">
               {/* Vertical connector line */}
-              <div className="absolute left-8 md:left-10 top-20 bottom-0 w-1 bg-gradient-to-b from-accent to-accent/0 hidden lg:block" />
+              <div className="absolute left-8 md:left-10 top-20 bottom-0 w-1 bg-linear-to-b from-accent to-accent/0 hidden lg:block" />
 
               {STEPS.map((step) => (
                 <div
@@ -124,7 +124,7 @@ export default function HowItWorks() {
                 >
                   {/* Step Number */}
                   <div className="shrink-0">
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-accent to-orange-500 flex items-center justify-center shadow-md">
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-linear-to-br from-accent to-orange-500 flex items-center justify-center shadow-md">
                       <span className="font-display font-extrabold text-white text-2xl md:text-3xl">
                         {step.num}
                       </span>
@@ -174,7 +174,7 @@ export default function HowItWorks() {
           {/* RIGHT: Form — sticky so it stays beside the steps while scrolling */}
           <div className="lg:col-span-5 lg:sticky lg:top-8 lg:-mt-32">
             {submitted ? (
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-6 flex flex-col items-center justify-center text-center min-h-[200px]">
+              <div className="bg-linear-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-6 flex flex-col items-center justify-center text-center min-h-50">
                 <div className="text-5xl mb-3 animate-bounce">✅</div>
                 <h4 className="font-display text-green-800 font-bold text-lg mb-1">
                   Success!
@@ -281,7 +281,7 @@ export default function HowItWorks() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-gradient-to-r from-accent to-orange-500 hover:from-orange-500 hover:to-accent text-white font-ui text-sm font-bold py-2.5 rounded-lg transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 mt-2"
+                    className="w-full bg-linear-to-r from-accent to-orange-500 hover:from-orange-500 hover:to-accent text-white font-ui text-sm font-bold py-2.5 rounded-lg transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 mt-2"
                   >
                     {loading ? "Sending..." : "Send →"}
                   </button>

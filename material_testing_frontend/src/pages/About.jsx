@@ -13,6 +13,31 @@ import lab10 from "../assets/images/lab/10.jpeg";
 import lab11 from "../assets/images/lab/11.jpeg";
 import lab12 from "../assets/images/lab/12.jpeg";
 
+import { ComposableMap, Geographies, Geography } from "react-simple-maps";
+
+const SERVED_STATES = [
+  "Texas",
+  "Florida",
+  "Georgia",
+  "Alabama",
+  "Tennessee",
+  "North Carolina",
+  "South Carolina",
+  "Virginia",
+  "West Virginia",
+];
+const GEO_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
+const STATE_NAMES = {
+  TX: "Texas",
+  FL: "Florida",
+  GA: "Georgia",
+  AL: "Alabama",
+  TN: "Tennessee",
+  NC: "North Carolina",
+  SC: "South Carolina",
+  VA: "Virginia",
+  WV: "West Virginia",
+};
 const LAB_PHOTOS = [
   lab1,
   lab2,
@@ -28,33 +53,51 @@ const LAB_PHOTOS = [
   lab12,
 ];
 
-const TICKER_ITEMS = [
-  { label: "Women Owned", sub: "Certified Business" },
-  { label: "Georgia", sub: "Sole Entity" },
-  { label: "Fast Turnaround", sub: "Reports in 48 Hours" },
-  { label: "Lab", sub: "1,600 Sq. Ft. Facility" },
-];
-
-const WHY_US = [
+const CREDENTIALS = [
   {
-    num: "01",
-    title: "NABL Accredited",
-    desc: "Nationally accredited laboratory meeting the highest testing standards recognized by all government and private authorities.",
+    label: "Women Owned",
+    sub: "Certified Business",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
+        <path d="M12 2a5 5 0 100 10A5 5 0 0012 2zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z" />
+      </svg>
+    ),
   },
   {
-    num: "02",
-    title: "Fast Turnaround",
-    desc: "Reports delivered within 24–48 hours without compromising on accuracy or detail.",
+    label: "Georgia Entity",
+    sub: "Registered in GA",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+      </svg>
+    ),
   },
   {
-    num: "03",
-    title: "Modern Equipment",
-    desc: "Latest testing equipment calibrated to international standards — IS, ASTM, BS, and AASHTO.",
+    label: "Fast Turnaround",
+    sub: "Reports as soon as 48 Hours",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
+        <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+      </svg>
+    ),
   },
   {
-    num: "04",
-    title: "Detailed Reports",
-    desc: "Clear, comprehensive reports structured for engineers, contractors, and regulatory bodies.",
+    label: "Lab Facility",
+    sub: "Spacious, 1600 Sq. Ft",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Office Location",
+    sub: "Great Area, 0.9 Mile from I-8F Exit",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+      </svg>
+    ),
   },
 ];
 
@@ -80,8 +123,10 @@ export default function About() {
             </h1>
             <p className="font-body text-white/60 text-base leading-relaxed max-w-lg">
               SSN Material Testing Laboratory has been serving the construction
-              industry in Georgia. We provide certified, accurate, and timely
-              test reports that engineers and contractors trust.
+              industry in South Atlantic Region and Neighboring States.Our
+              Current Service areas are TX, FL, GA, AL, TN, NC, SC, VA, WV. We
+              provide certified, accurate, and timely test reports that
+              engineers, developer or contractors trust.
             </p>
           </div>
 
@@ -113,22 +158,50 @@ export default function About() {
       </section>
 
       {/* ── STRIP ── */}
-      <div className="bg-accent py-5 px-10 md:px-16">
-        <div className="flex flex-wrap items-center justify-between gap-y-4">
-          {TICKER_ITEMS.map((item, i) => (
-            <div key={i} className="flex items-center gap-8">
-              <div className="flex flex-col leading-tight">
-                <span className="font-display text-white font-extrabold text-sm uppercase tracking-wide">
-                  {item.label}
-                </span>
-                <span className="font-ui text-white/70 text-[11px] uppercase tracking-[1.5px]">
-                  {item.sub}
-                </span>
+      <div className="bg-accent">
+        {/* Mobile: 2x2 grid */}
+        <div className="grid grid-cols-2 gap-px bg-white/20 md:hidden">
+          {CREDENTIALS.map((c, i) => (
+            <div
+              key={i}
+              className="bg-accent flex items-center gap-3 px-5 py-5"
+            >
+              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                {c.icon}
               </div>
-              {i < TICKER_ITEMS.length - 1 && (
-                <span className="text-white/30 text-lg">·</span>
-              )}
+              <div>
+                <div className="font-display text-white font-extrabold text-xs uppercase tracking-widest leading-none">
+                  {c.label}
+                </div>
+                <div className="font-ui text-white/70 text-[10px] uppercase tracking-[1.5px] mt-0.5">
+                  {c.sub}
+                </div>
+              </div>
             </div>
+          ))}
+        </div>
+
+        {/* Desktop: horizontal */}
+        <div className="hidden md:flex justify-between items-center px-16 py-4 gap-4">
+          {CREDENTIALS.map((c, i) => (
+            <>
+              <div key={i} className="flex items-center gap-4">
+                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                  {c.icon}
+                </div>
+                <div>
+                  <div className="font-display text-white font-extrabold text-sm uppercase tracking-widest leading-none">
+                    {c.label}
+                  </div>
+                  <div className="font-ui text-white/70 text-[10px] tracking-[2px] mt-0.5">
+                    {c.sub}
+                  </div>
+                </div>
+              </div>
+              {i < CREDENTIALS.length - 1 && (
+                <div className="w-px h-8 bg-white/20" />
+              )}
+            </>
           ))}
         </div>
       </div>
@@ -192,6 +265,109 @@ export default function About() {
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SERVICE AREA MAP ── */}
+      <section className="bg-white py-20 px-6 border-b border-gray-200">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-8 h-0.5 bg-accent" />
+            <span className="font-ui text-accent text-xs font-semibold uppercase tracking-[3px]">
+              Where We Serve
+            </span>
+          </div>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+            <h2
+              className="font-display text-primary font-extrabold leading-none"
+              style={{
+                fontSize: "clamp(28px, 4vw, 48px)",
+                letterSpacing: "-1px",
+              }}
+            >
+              OUR <span className="text-accent">SERVICE AREA</span>
+            </h2>
+            <p className="font-body text-gray-500 text-sm leading-relaxed max-w-sm">
+              We serve the South Atlantic Region and neighboring states —
+              certified testing across 9 states.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+            {/* Map */}
+            <div className="lg:col-span-2">
+              <ComposableMap
+                projection="geoAlbersUsa"
+                projectionConfig={{ scale: 900 }}
+                style={{ width: "100%", height: "auto" }}
+              >
+                <Geographies geography={GEO_URL}>
+                  {({ geographies }) =>
+                    geographies.map((geo) => {
+                      const stateName = geo.properties.name;
+                      const isServed = SERVED_STATES.includes(stateName);
+                      return (
+                        <Geography
+                          key={geo.rsmKey}
+                          geography={geo}
+                          fill={isServed ? "#F97316" : "#E5E7EB"}
+                          stroke="#ffffff"
+                          strokeWidth={1}
+                          style={{
+                            default: { outline: "none" },
+                            hover: {
+                              fill: isServed ? "#EA6A0A" : "#D1D5DB",
+                              outline: "none",
+                              cursor: isServed ? "pointer" : "default",
+                            },
+                            pressed: { outline: "none" },
+                          }}
+                        />
+                      );
+                    })
+                  }
+                </Geographies>
+              </ComposableMap>
+
+              {/* Legend */}
+              <div className="flex items-center gap-6 mt-2 pl-2">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-sm bg-accent" />
+                  <span className="font-ui text-gray-500 text-xs">
+                    Service Area
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-sm bg-gray-200" />
+                  <span className="font-ui text-gray-500 text-xs">
+                    Not Currently Served
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* State list */}
+            <div className="flex flex-col gap-2">
+              <p className="font-ui text-gray-400 text-[10px] uppercase tracking-[3px] mb-2">
+                Covered States
+              </p>
+              {Object.entries(STATE_NAMES).map(([code, name]) => (
+                <div
+                  key={code}
+                  className="flex items-center gap-4 border border-gray-200 px-4 py-3 hover:border-accent/40 hover:bg-orange-50 transition-all duration-200"
+                >
+                  <span className="font-display text-accent font-extrabold text-sm w-8 shrink-0">
+                    {code}
+                  </span>
+                  <div className="w-px h-4 bg-gray-200" />
+                  <span className="font-ui text-gray-600 text-xs tracking-wide">
+                    {name}
+                  </span>
+                  <div className="ml-auto w-1.5 h-1.5 rounded-full bg-accent" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -295,61 +471,6 @@ export default function About() {
             recognized for accuracy, integrity, and commitment to advancing
             construction quality standards.
           </p>
-        </div>
-      </section>
-
-      {/* ── WHY CHOOSE US ── */}
-      <section className="bg-bg border-b border-gray-200 py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-0.5 bg-accent" />
-            <span className="font-ui text-accent text-xs font-semibold uppercase tracking-[3px]">
-              Why SSN
-            </span>
-          </div>
-          <h2
-            className="font-display text-primary font-extrabold leading-none mb-14"
-            style={{
-              fontSize: "clamp(28px, 4vw, 48px)",
-              letterSpacing: "-1px",
-            }}
-          >
-            WHY CHOOSE <span className="text-accent">US</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-200">
-            {WHY_US.map((item) => (
-              <div
-                key={item.num}
-                className="bg-white hover:bg-bg transition-colors duration-200 px-10 py-10 flex flex-col gap-4 group"
-              >
-                <div className="flex items-center gap-4">
-                  <span
-                    className="font-display font-extrabold leading-none text-gray-100 group-hover:text-accent/20 transition-colors duration-200 select-none"
-                    style={{
-                      fontSize: "clamp(40px, 5vw, 56px)",
-                      letterSpacing: "-2px",
-                    }}
-                  >
-                    {item.num}
-                  </span>
-                  <div className="w-px h-8 bg-gray-200" />
-                  <h4
-                    className="font-display text-primary font-extrabold leading-tight"
-                    style={{
-                      fontSize: "clamp(15px, 1.6vw, 20px)",
-                      letterSpacing: "-0.3px",
-                    }}
-                  >
-                    {item.title}
-                  </h4>
-                </div>
-                <div className="w-8 h-0.5 bg-accent" />
-                <p className="font-body text-gray-500 text-sm leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
     </div>

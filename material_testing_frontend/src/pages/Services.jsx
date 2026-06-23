@@ -7,7 +7,13 @@ const SERVICES = [
     cat: "Soil & Aggregate",
     title: "Soil & Aggregate Physical & Strength Testing",
     desc: "We evaluate soil and aggregate materials to determine engineering properties essential for foundations, pavements, and earthwork design.",
-    img: "https://plus.unsplash.com/premium_photo-1661902899911-d7b89906e638?q=80&w=1191&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    img: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Oedometer.jpg",
+    imgCredit: {
+      author: "Deryck Chan",
+      license: "CC BY-SA 4.0",
+      url: "https://commons.wikimedia.org/wiki/File:Oedometer.jpg",
+    },
+
     tests: [
       "Grain Size Analysis (Sieve & Hydrometer)",
       "Atterberg Limits",
@@ -25,7 +31,7 @@ const SERVICES = [
     cat: "Concrete",
     title: "Fresh & Hardened Concrete Testing",
     desc: "Our concrete testing services ensure compliance with mix design specifications, structural performance requirements, and durability standards.",
-    img: "https://images.unsplash.com/photo-1583315379064-e56a9252e88f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGNvbmNyZXRlJTIwdGVzdGluZyUyMGxhYnxlbnwwfHwwfHx8MA%3D%3D",
+    img: "/california-bearing-ratio-test.jpg",
     tests: [
       "Slump Test",
       "Air Content Test",
@@ -44,7 +50,7 @@ const SERVICES = [
     cat: "Rock",
     title: "Rock Testing & Characterization",
     desc: "Our rock testing services assess rock strength, durability, and deformation to support engineering decisions for foundations, slopes, excavations, and underground structures.",
-    img: "https://plus.unsplash.com/premium_photo-1726332462105-a7585a330a78?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHJvY2slMjBjb3JlJTIwc2FtcGxlJTIwdGVzdGluZ3xlbnwwfHwwfHx8MA%3D%3D",
+    img: "https://images.unsplash.com/photo-1780342333689-2a76cfdb0152?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     tests: [
       "Uniaxial Compressive Strength (UCS) Testing",
       "Triaxial Compressive Strength Testing",
@@ -61,7 +67,6 @@ const SERVICES = [
     cat: "Bitumen & Asphalt",
     title: "Bitumen & Asphalt Mix Testing",
     desc: "We provide comprehensive asphalt and bituminous material testing for pavement design, production control, and performance evaluation.",
-    img: "https://images.unsplash.com/photo-1647774660810-ee8eb8c600dd?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     tests: [
       "Asphalt Binder Penetration, Softening Point, and Viscosity",
       "Marshall Stability and Flow",
@@ -88,27 +93,13 @@ const SERVICES = [
       "Permeable Pavement Testing",
     ],
   },
-  {
-    id: "env",
-    cat: "Environmental",
-    title: "Environmental Sampling & Testing",
-    desc: "We support environmental compliance and risk assessment through laboratory testing of soil, water, and construction materials.",
-    img: "https://plus.unsplash.com/premium_photo-1711652435328-e310983b4023?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    tests: [
-      "Soil Contamination Analysis",
-      "Groundwater and Surface Water Sampling",
-      "pH, Turbidity, and Conductivity Tests",
-      "Heavy Metals and Hydrocarbon Screening",
-      "Compaction Moisture and Volatile Content Testing",
-      "Construction Debris Characterization",
-    ],
-  },
 ];
 
 const STANDARDS = [
-  { code: "IS", full: "Indian Standards" },
+  // { code: "IS", full: "Indian Standards" },
   { code: "ASTM", full: "American Society for Testing and Materials" },
-  { code: "BS", full: "British Standards" },
+  // { code: "BS", full: "British Standards" },
+  { code: "DOT Standards", full: "Department of Transportation" },
   { code: "AASHTO", full: "American Assoc. of State Highway Officials" },
 ];
 
@@ -225,6 +216,16 @@ export default function Services() {
               >
                 {num}
               </div>
+              {service.imgCredit && (
+                <a
+                  href={service.imgCredit.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-2 left-2 bg-black/50 text-white/70 text-[10px] font-ui px-2 py-0.5 rounded hover:text-white transition-colors z-10"
+                >
+                  © {service.imgCredit.author} · {service.imgCredit.license}
+                </a>
+              )}
             </div>
 
             {/* Content panel */}
@@ -328,7 +329,7 @@ export default function Services() {
             to="/contact"
             className="font-ui text-sm font-bold uppercase tracking-wider bg-accent hover:bg-accent-light text-white px-10 py-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg inline-block"
           >
-            Get a Quote
+            Contact Us
           </Link>
         </div>
       </section>
