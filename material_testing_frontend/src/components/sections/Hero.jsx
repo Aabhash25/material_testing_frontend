@@ -6,7 +6,7 @@ import lab3 from "../../assets/images/lab/03.jpeg";
 const CREDENTIALS = [
   {
     label: "Women Owned",
-    sub: "Certified Business",
+    sub: "Business",
     icon: (
       <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
         <path d="M12 2a5 5 0 100 10A5 5 0 0012 2zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z" />
@@ -14,8 +14,8 @@ const CREDENTIALS = [
     ),
   },
   {
-    label: "Georgia Sole Entity",
-    sub: "SSN Corporation",
+    label: "Georgia Entity",
+    sub: "Registered in GA",
     icon: (
       <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
@@ -32,8 +32,8 @@ const CREDENTIALS = [
     ),
   },
   {
-    label: "Lab",
-    sub: "1,600 Sq. Ft. Facility",
+    label: "Lab Facility",
+    sub: "Spacious, 1600 Sq. Ft",
     icon: (
       <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
         <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
@@ -204,7 +204,7 @@ export default function Hero() {
                   <div className="font-display text-white font-extrabold text-sm uppercase tracking-widest leading-none">
                     {c.label}
                   </div>
-                  <div className="font-ui text-white/70 text-[10px] uppercase tracking-[2px] mt-0.5">
+                  <div className="font-ui text-white/70 text-[10px] tracking-[2px] mt-0.5">
                     {c.sub}
                   </div>
                 </div>
