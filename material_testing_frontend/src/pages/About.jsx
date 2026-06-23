@@ -1,4 +1,7 @@
 import aboutIllustration from "../assets/images/Construction-amico.svg";
+import { useEffect, useRef, useState } from "react";
+import * as d3 from "d3-geo";
+import * as topojson from "topojson-client";
 
 import lab1 from "../assets/images/lab/01.jpeg";
 import lab2 from "../assets/images/lab/02.jpeg";
@@ -13,8 +16,6 @@ import lab10 from "../assets/images/lab/10.jpeg";
 import lab11 from "../assets/images/lab/11.jpeg";
 import lab12 from "../assets/images/lab/12.jpeg";
 
-import { ComposableMap, Geographies, Geography } from "react-simple-maps";
-
 const SERVED_STATES = [
   "Texas",
   "Florida",
@@ -26,18 +27,19 @@ const SERVED_STATES = [
   "Virginia",
   "West Virginia",
 ];
-const GEO_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
-const STATE_NAMES = {
-  TX: "Texas",
-  FL: "Florida",
-  GA: "Georgia",
-  AL: "Alabama",
-  TN: "Tennessee",
-  NC: "North Carolina",
-  SC: "South Carolina",
-  VA: "Virginia",
-  WV: "West Virginia",
-};
+
+const STATE_LIST = [
+  { code: "TX", name: "Texas" },
+  { code: "FL", name: "Florida" },
+  { code: "GA", name: "Georgia" },
+  { code: "AL", name: "Alabama" },
+  { code: "TN", name: "Tennessee" },
+  { code: "NC", name: "North Carolina" },
+  { code: "SC", name: "South Carolina" },
+  { code: "VA", name: "Virginia" },
+  { code: "WV", name: "West Virginia" },
+];
+
 const LAB_PHOTOS = [
   lab1,
   lab2,
@@ -101,6 +103,61 @@ const CREDENTIALS = [
   },
 ];
 
+function USMap() {
+  const svgRef = useRef(null);
+  const [paths, setPaths] = useState([]);
+  const width = 800;
+  const height = 500;
+
+  useEffect(() => {
+    fetch("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json")
+      .then((r) => r.json())
+      .then((us) => {
+        const projection = d3
+          .geoAlbersUsa()
+          .scale(1000)
+          .translate([width / 2, height / 2]);
+        const pathGen = d3.geoPath().projection(projection);
+        const states = topojson.feature(us, us.objects.states);
+        const rendered = states.features.map((feature) => ({
+          d: pathGen(feature),
+          name: feature.properties.name,
+          served: SERVED_STATES.includes(feature.properties.name),
+        }));
+        setPaths(rendered);
+      });
+  }, []);
+
+  return (
+    <svg
+      ref={svgRef}
+      viewBox={`0 0 ${width} ${height}`}
+      className="w-full h-auto"
+    >
+      {paths.map((p, i) => (
+        <path
+          key={i}
+          d={p.d}
+          fill={p.served ? "#F97316" : "#E5E7EB"}
+          stroke="#ffffff"
+          strokeWidth={1}
+          className="transition-colors duration-200"
+          style={{ cursor: p.served ? "pointer" : "default" }}
+          onMouseEnter={(e) => {
+            if (!p.served) e.target.setAttribute("fill", "#D1D5DB");
+            else e.target.setAttribute("fill", "#EA6A0A");
+          }}
+          onMouseLeave={(e) => {
+            e.target.setAttribute("fill", p.served ? "#F97316" : "#E5E7EB");
+          }}
+        >
+          <title>{p.name}</title>
+        </path>
+      ))}
+    </svg>
+  );
+}
+
 export default function About() {
   return (
     <div className="pt-24">
@@ -123,13 +180,12 @@ export default function About() {
             </h1>
             <p className="font-body text-white/60 text-base leading-relaxed max-w-lg">
               SSN Material Testing Laboratory has been serving the construction
-              industry in South Atlantic Region and Neighboring States.Our
+              industry in South Atlantic Region and Neighboring States. Our
               Current Service areas are TX, FL, GA, AL, TN, NC, SC, VA, WV. We
               provide certified, accurate, and timely test reports that
-              engineers, developer or contractors trust.
+              engineers, developers or contractors trust.
             </p>
           </div>
-
           <div className="flex-1 flex items-center justify-center relative">
             <div
               className="absolute inset-0 pointer-events-none"
@@ -159,7 +215,6 @@ export default function About() {
 
       {/* ── STRIP ── */}
       <div className="bg-accent">
-        {/* Mobile: 2x2 grid */}
         <div className="grid grid-cols-2 gap-px bg-white/20 md:hidden">
           {CREDENTIALS.map((c, i) => (
             <div
@@ -180,8 +235,6 @@ export default function About() {
             </div>
           ))}
         </div>
-
-        {/* Desktop: horizontal */}
         <div className="hidden md:flex justify-between items-center px-16 py-4 gap-4">
           {CREDENTIALS.map((c, i) => (
             <>
@@ -224,7 +277,6 @@ export default function About() {
           >
             OUR <span className="text-accent">FACILITY</span>
           </h2>
-
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
             <div
               className="col-span-2 row-span-2 relative overflow-hidden group"
@@ -254,7 +306,7 @@ export default function About() {
             {LAB_PHOTOS.slice(9, 12).map((photo, i) => (
               <div
                 key={i + 9}
-                className="relative overflow-hidden group col-span-1 md:col-span-1"
+                className="relative overflow-hidden group"
                 style={{ aspectRatio: "4 / 3" }}
               >
                 <img
@@ -295,43 +347,9 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-            {/* Map */}
             <div className="lg:col-span-2">
-              <ComposableMap
-                projection="geoAlbersUsa"
-                projectionConfig={{ scale: 900 }}
-                style={{ width: "100%", height: "auto" }}
-              >
-                <Geographies geography={GEO_URL}>
-                  {({ geographies }) =>
-                    geographies.map((geo) => {
-                      const stateName = geo.properties.name;
-                      const isServed = SERVED_STATES.includes(stateName);
-                      return (
-                        <Geography
-                          key={geo.rsmKey}
-                          geography={geo}
-                          fill={isServed ? "#F97316" : "#E5E7EB"}
-                          stroke="#ffffff"
-                          strokeWidth={1}
-                          style={{
-                            default: { outline: "none" },
-                            hover: {
-                              fill: isServed ? "#EA6A0A" : "#D1D5DB",
-                              outline: "none",
-                              cursor: isServed ? "pointer" : "default",
-                            },
-                            pressed: { outline: "none" },
-                          }}
-                        />
-                      );
-                    })
-                  }
-                </Geographies>
-              </ComposableMap>
-
-              {/* Legend */}
-              <div className="flex items-center gap-6 mt-2 pl-2">
+              <USMap />
+              <div className="flex items-center gap-6 mt-3 pl-2">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-sm bg-accent" />
                   <span className="font-ui text-gray-500 text-xs">
@@ -347,12 +365,11 @@ export default function About() {
               </div>
             </div>
 
-            {/* State list */}
             <div className="flex flex-col gap-2">
               <p className="font-ui text-gray-400 text-[10px] uppercase tracking-[3px] mb-2">
                 Covered States
               </p>
-              {Object.entries(STATE_NAMES).map(([code, name]) => (
+              {STATE_LIST.map(({ code, name }) => (
                 <div
                   key={code}
                   className="flex items-center gap-4 border border-gray-200 px-4 py-3 hover:border-accent/40 hover:bg-orange-50 transition-all duration-200"
