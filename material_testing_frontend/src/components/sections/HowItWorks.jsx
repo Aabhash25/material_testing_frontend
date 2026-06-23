@@ -88,7 +88,7 @@ export default function HowItWorks() {
           <div className="flex items-center gap-3 mb-4">
             <div className="w-6 h-0.5 bg-accent" />
             <span className="font-ui text-accent text-xs font-semibold uppercase tracking-[3px]">
-              How It Works
+              Our Testing Process
             </span>
           </div>
           <h2

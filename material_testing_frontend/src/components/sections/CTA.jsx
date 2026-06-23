@@ -115,14 +115,14 @@ export default function CTA() {
               letterSpacing: "-1.5px",
             }}
           >
-            NEED A MATERIAL
+            NEED GEO-MATERIAL &
             <br />
-            TESTING REPORT?
+            CONSTRUCTIOIN MATERIAL TESTING SERVICES?
           </h2>
           <p className="font-body text-gray-500 text-sm leading-relaxed max-w-md">
             Accurate, certified test reports delivered fast. We serve
-            contractors, engineers, and government projects across United
-            States.
+            contractors, engineers, and government projects across South
+            Atlantic Region.
           </p>
         </div>
 
@@ -141,7 +141,7 @@ export default function CTA() {
             View All Services
           </Link>
           <p className="font-ui text-gray-400 text-xs text-center">
-            Reports delivered within 24–48 hours
+            Reports as soon as 48 hours
           </p>
         </div>
       </div>

@@ -74,7 +74,7 @@ export default function Footer() {
                 ssnmaterialtesting@gmail.com
               </a>
             </li>
-            <li>🕐 Mon–Fri: 9:00 AM – 5:00 PM</li>
+            <li>🕐 Mon–Fri: 7:00 AM – 4:00 PM</li>
           </ul>
         </div>
       </div>
