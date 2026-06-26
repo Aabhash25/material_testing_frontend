@@ -83,7 +83,7 @@ const SERVICES = [
     cat: "Water & Drainage",
     title: "Water Drainage & Permeability Testing",
     desc: "Our hydraulic and permeability testing services evaluate infiltration, drainage capacity, and water movement through soils and materials.",
-    img: "https://images.unsplash.com/photo-1526898943670-92bfa9f94c12?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d2F0ZXIlMjBwZXJtZWFiaWxpdHklMjBkcmFpbmFnZSUyMHRlc3R8ZW58MHx8MHx8fDA%3D",
+    img: "https://images.unsplash.com/photo-1526898943670-92bfa9f94c12?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d2F0ZXIlMjBwZXJtBWFiaWxpdHklMjBkcmFpbmFnZSUyMHRlc3R8ZW58MHx8MHx8fDA%3D",
     tests: [
       "Constant Head and Falling Head Permeability",
       "Infiltration Rate Testing",
@@ -96,9 +96,7 @@ const SERVICES = [
 ];
 
 const STANDARDS = [
-  // { code: "IS", full: "Indian Standards" },
   { code: "ASTM", full: "American Society for Testing and Materials" },
-  // { code: "BS", full: "British Standards" },
   { code: "DOT Standards", full: "Department of Transportation" },
   { code: "AASHTO", full: "American Assoc. of State Highway Officials" },
 ];
@@ -171,12 +169,13 @@ export default function Services() {
         return (
           <section
             key={service.id}
-            className="flex flex-col md:flex-row border-b border-gray-200"
-            style={{ minHeight: "480px" }}
+            className={`flex flex-col md:flex-row border-b border-gray-200 md:items-stretch ${
+              isEven ? "bg-white" : "bg-bg"
+            }`}
           >
-            {/* Image panel */}
+            {/* Image panel - Increased container to a solid 460px height on desktop */}
             <div
-              className={`relative overflow-hidden md:w-1/2 h-64 md:h-auto ${
+              className={`relative overflow-hidden w-full md:w-1/2 h-64 md:h-140 ${
                 isEven ? "md:order-1" : "md:order-2"
               }`}
             >
@@ -184,34 +183,33 @@ export default function Services() {
                 src={service.img}
                 alt={service.title}
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                style={{ minHeight: "320px" }}
               />
               {/* Overlay */}
               <div
                 className="absolute inset-0"
                 style={{
                   background: isEven
-                    ? "linear-gradient(135deg, rgba(26,35,50,0.45) 0%, rgba(26,35,50,0.05) 100%)"
-                    : "linear-gradient(225deg, rgba(26,35,50,0.45) 0%, rgba(26,35,50,0.05) 100%)",
+                    ? "linear-gradient(135deg, rgba(26,35,50,0.3) 0%, rgba(26,35,50,0.05) 100%)"
+                    : "linear-gradient(225deg, rgba(26,35,50,0.3) 0%, rgba(26,35,50,0.05) 100%)",
                 }}
               />
               {/* Category badge */}
               <div
-                className={`absolute top-6 font-ui text-white text-xs font-bold uppercase tracking-[2.5px] bg-accent px-3 py-1.5 ${
-                  isEven ? "left-6" : "right-6"
+                className={`absolute top-5 font-ui text-white text-[11px] font-bold uppercase tracking-[2px] bg-accent px-3 py-1.5 ${
+                  isEven ? "left-5" : "right-5"
                 }`}
               >
                 {service.cat}
               </div>
               {/* Ghost number */}
               <div
-                className={`absolute bottom-4 font-display font-extrabold leading-none select-none pointer-events-none ${
+                className={`absolute bottom-3 font-display font-extrabold leading-none select-none pointer-events-none ${
                   isEven ? "right-5" : "left-5"
                 }`}
                 style={{
-                  fontSize: "clamp(72px, 10vw, 110px)",
+                  fontSize: "clamp(64px, 8vw, 96px)",
                   color: "rgba(255,255,255,0.1)",
-                  letterSpacing: "-4px",
+                  letterSpacing: "-2px",
                 }}
               >
                 {num}
@@ -223,22 +221,22 @@ export default function Services() {
                   rel="noopener noreferrer"
                   className="absolute bottom-2 left-2 bg-black/50 text-white/70 text-[10px] font-ui px-2 py-0.5 rounded hover:text-white transition-colors z-10"
                 >
-                  © {service.imgCredit.author} · {service.imgCredit.license}
+                  © {service.imgCredit.author}
                 </a>
               )}
             </div>
 
             {/* Content panel */}
             <div
-              className={`md:w-1/2 flex flex-col justify-center px-10 py-14 md:px-16 ${
-                isEven ? "md:order-2 bg-white" : "md:order-1 bg-bg"
+              className={`w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-12 lg:px-16 ${
+                isEven ? "md:order-2" : "md:order-1"
               }`}
             >
               {/* Title */}
               <h2
-                className="font-display text-primary font-extrabold leading-tight mb-4"
+                className="font-display text-primary font-extrabold leading-tight mb-3"
                 style={{
-                  fontSize: "clamp(22px, 2.8vw, 34px)",
+                  fontSize: "clamp(22px, 2.6vw, 30px)",
                   letterSpacing: "-0.5px",
                 }}
               >
@@ -246,10 +244,10 @@ export default function Services() {
               </h2>
 
               {/* Accent divider */}
-              <div className="w-10 h-0.5 bg-accent mb-5" />
+              <div className="w-10 h-0.5 bg-accent mb-4" />
 
               {/* Description */}
-              <p className="font-body text-gray-500 text-sm leading-relaxed mb-8 max-w-md">
+              <p className="font-body text-gray-500 text-sm leading-relaxed mb-6 max-w-md">
                 {service.desc}
               </p>
 
@@ -258,7 +256,7 @@ export default function Services() {
                 {service.tests.map((test, i) => (
                   <div
                     key={i}
-                    className="flex items-start gap-2.5 py-2.5 border-b border-gray-100 last:border-0"
+                    className="flex items-start gap-2 py-2 border-b border-gray-100 last:border-0"
                   >
                     <div className="w-1 h-1 rounded-full bg-accent mt-1.5 shrink-0" />
                     <span className="font-ui text-primary text-xs font-medium leading-snug">

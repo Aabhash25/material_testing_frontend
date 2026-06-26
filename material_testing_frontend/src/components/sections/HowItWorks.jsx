@@ -7,23 +7,16 @@ const STEPS = [
     num: "01",
     title: "Submit Your Request",
     desc: "Contact us with your project information and test requirements.",
-    note: {
-      text: "First time client? Please fill out our contact form or call directly for fee schedules.",
-      linkLabel: "Contact Form →",
-      linkTo: "/contact",
-    },
   },
   {
     num: "02",
     title: "We Test Your Samples",
     desc: "Bring your samples to our lab or request on-site collection.",
-    note: null,
   },
   {
     num: "03",
     title: "Test Results",
     desc: "We deliver the laboratory test report as soon as 48 hours — digitally delivered and ready for your use.",
-    note: null,
   },
 ];
 
@@ -83,7 +76,7 @@ export default function HowItWorks() {
   return (
     <section className="w-full bg-white py-12 md:py-16 pb-8 md:pb-12">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
-        {/* Section Header — full width, above the grid */}
+        {/* Section Header */}
         <div className="mb-10 md:mb-12">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-6 h-0.5 bg-accent" />
@@ -109,7 +102,7 @@ export default function HowItWorks() {
           </p>
         </div>
 
-        {/* Single grid: Steps left, Form right — properly aligned */}
+        {/* Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           {/* LEFT: Steps */}
           <div className="lg:col-span-7">
@@ -122,7 +115,6 @@ export default function HowItWorks() {
                   key={step.num}
                   className="flex gap-6 items-start relative z-10"
                 >
-                  {/* Step Number */}
                   <div className="shrink-0">
                     <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-linear-to-br from-accent to-orange-500 flex items-center justify-center shadow-md">
                       <span className="font-display font-extrabold text-white text-2xl md:text-3xl">
@@ -131,7 +123,6 @@ export default function HowItWorks() {
                     </div>
                   </div>
 
-                  {/* Content */}
                   <div className="flex-1 pt-2 md:pt-3">
                     <h3
                       className="font-display font-bold text-primary mb-1.5"
@@ -148,30 +139,28 @@ export default function HowItWorks() {
                     >
                       {step.desc}
                     </p>
-                    {step.note && (
-                      <div className="inline-block bg-accent/5 border-l-2 border-accent px-3 py-2 rounded">
-                        <p
-                          className="font-body text-gray-600 text-xs leading-relaxed"
-                          style={{ fontSize: "clamp(12px, 0.95vw, 13px)" }}
-                        >
-                          <span className="text-accent font-semibold">💡</span>{" "}
-                          {step.note.text}{" "}
-                          <Link
-                            to={step.note.linkTo}
-                            className="text-accent font-bold hover:underline"
-                          >
-                            {step.note.linkLabel}
-                          </Link>
-                        </p>
-                      </div>
-                    )}
                   </div>
                 </div>
               ))}
             </div>
+
+            {/* Note — below all 3 steps, inside left column */}
+            <div className="mt-6 inline-block bg-accent/5 border-l-2 border-accent px-3 py-2 rounded">
+              <p className="font-body text-gray-600 text-xs leading-relaxed">
+                <span className="text-accent font-semibold">💡</span> First time
+                client? Please fill out our contact form or call directly for
+                fee schedules.{" "}
+                <Link
+                  to="/contact"
+                  className="text-accent font-bold hover:underline"
+                >
+                  Contact Form →
+                </Link>
+              </p>
+            </div>
           </div>
 
-          {/* RIGHT: Form — sticky so it stays beside the steps while scrolling */}
+          {/* RIGHT: Form */}
           <div className="lg:col-span-5 lg:sticky lg:top-8 lg:-mt-32">
             {submitted ? (
               <div className="bg-linear-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-6 flex flex-col items-center justify-center text-center min-h-50">
@@ -185,13 +174,6 @@ export default function HowItWorks() {
               </div>
             ) : (
               <div className="bg-white border border-gray-200 rounded-xl p-6 md:p-7 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <h4 className="font-display text-primary font-bold text-lg md:text-xl mb-1">
-                  Get a Quote
-                </h4>
-                <p className="font-body text-gray-500 text-xs mb-5">
-                  Quick form to get started
-                </p>
-
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                   <div>
                     <label className="font-ui text-xs font-semibold text-gray-600 mb-2 block">

@@ -1,4 +1,4 @@
-import aboutIllustration from "../assets/images/Construction-amico.svg";
+// import aboutIllustration from "../assets/images/Construction-amico.svg";
 import { useEffect, useRef, useState } from "react";
 import * as d3 from "d3-geo";
 import * as topojson from "topojson-client";
@@ -15,6 +15,7 @@ import lab9 from "../assets/images/lab/09.jpeg";
 import lab10 from "../assets/images/lab/10.jpeg";
 import lab11 from "../assets/images/lab/11.jpeg";
 import lab12 from "../assets/images/lab/12.jpeg";
+import officeExterior from "../assets/images/office-exterior.jpg";
 
 const SERVED_STATES = [
   "Texas",
@@ -204,9 +205,10 @@ export default function About() {
               }}
             />
             <img
-              src={aboutIllustration}
-              alt="About SSN illustration"
-              className="relative w-full max-w-xs md:max-w-sm drop-shadow-xl z-10"
+              src={officeExterior}
+              alt="SSN Materials Testing Lab office exterior"
+              className="relative w-full max-w-xs md:max-w-sm rounded-sm shadow-xl z-10 object-cover"
+              style={{ aspectRatio: "4 / 3" }}
             />
             <style>{`@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
           </div>
