@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from "../../assets/images/ssn.webp"; // Update this path if your logo is in a different folder
 
 const LINKS = [
   { label: "Home", path: "/" },
@@ -10,28 +11,20 @@ const LINKS = [
 export default function Footer() {
   return (
     <footer className="bg-primary text-white/60">
-      <div className="max-w-7xl mx-auto px-10 py-20 flex flex-col md:flex-row md:justify-between gap-10">
+      <div className="max-w-7xl mx-auto px-10 py-5 flex flex-col md:flex-row md:justify-between gap-10">
         {/* Brand */}
         <div>
-          <div className="flex items-center gap-3 mb-5">
-            <div className="bg-accent rounded px-2 py-1">
-              <div className="font-display text-white font-black text-xl tracking-widest">
-                SSN
-              </div>
-            </div>
-            <div>
-              <div className="font-display text-white font-bold text-base leading-tight">
-                SSN Material
-              </div>
-              <div className="font-ui text-accent text-[10px] tracking-[2px] uppercase">
-                Testing Lab
-              </div>
-            </div>
+          <div className="mb-5">
+            <img
+              src={logo}
+              alt="SSN Material Testing"
+              className="h-16 w-auto object-contain"
+            />
           </div>
 
           <p className="font-body text-sm leading-relaxed text-white/50 max-w-xs">
             Independent material testing laboratory delivering accurate and
-            reliable results for construction projects across Georgia.
+            reliable results for construction projects across South Atlantic States.
           </p>
         </div>
 
@@ -63,8 +56,7 @@ export default function Footer() {
               <span>✉️</span>
               <a
                 href="mailto:ssnmaterialtesting@gmail.com"
-                className="hover:text-accent transition-colors duration-200"
-                style={{ wordBreak: "break-all" }}
+                className="hover:text-accent transition-colors duration-200 break-all"
               >
                 ssnmaterialtesting@gmail.com
               </a>
