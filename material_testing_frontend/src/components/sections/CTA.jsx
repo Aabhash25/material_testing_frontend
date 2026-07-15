@@ -8,7 +8,7 @@ const STATS = [
 ];
 
 const LAB = {
-  name: "Main Testing Laboratory",
+  name: "Laboratory Location",
   address: "6500 McDonough Dr, Suite E-04",
   city: "Norcross, Georgia 30093",
   phone: "(470) 504-5962",

@@ -334,7 +334,7 @@ export default function About() {
           </div>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
             <h2
-              className="font-display text-primary font-extrabold leading-none"
+              className="font-display text-primary font-extrabold leading-none"     
               style={{
                 fontSize: "clamp(28px, 4vw, 48px)",
                 letterSpacing: "-1px",
