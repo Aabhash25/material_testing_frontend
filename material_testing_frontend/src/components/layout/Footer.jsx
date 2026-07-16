@@ -100,7 +100,7 @@ export default function Footer() {
 
           <div className="flex gap-4">
             <a
-              href="https://www.linkedin.com/company/ssn-corporation"
+              href="https://www.linkedin.com/company/ssn-material-testing"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -110,7 +110,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://www.facebook.com/people/SSN-Corporation/61566782237516/"
+              href="https://www.facebook.com/profile.php?id=61591476885717"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
