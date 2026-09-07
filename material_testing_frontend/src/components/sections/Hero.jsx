@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import lab1 from "../../assets/images/lab/01.jpeg";
-import lab2 from "../../assets/images/lab/02.jpeg";
-import lab3 from "../../assets/images/lab/03.jpeg";
+import lab1 from "../../assets/images/lab/01.webp";
+import lab2 from "../../assets/images/lab/02.webp";
+import lab3 from "../../assets/images/lab/03.webp";
 
 const CREDENTIALS = [
   {

@@ -3,18 +3,18 @@ import { useEffect, useRef, useState } from "react";
 import * as d3 from "d3-geo";
 import * as topojson from "topojson-client";
 
-import lab1 from "../assets/images/lab/01.jpeg";
-import lab2 from "../assets/images/lab/02.jpeg";
-import lab3 from "../assets/images/lab/03.jpeg";
-import lab4 from "../assets/images/lab/04.jpeg";
-import lab5 from "../assets/images/lab/05.jpeg";
-import lab6 from "../assets/images/lab/06.jpeg";
-import lab7 from "../assets/images/lab/07.jpeg";
-import lab8 from "../assets/images/lab/08.jpeg";
-import lab9 from "../assets/images/lab/09.jpeg";
-import lab10 from "../assets/images/lab/10.jpeg";
-import lab11 from "../assets/images/lab/11.jpeg";
-import lab12 from "../assets/images/lab/12.jpeg";
+import lab1 from "../assets/images/lab/01.webp";
+import lab2 from "../assets/images/lab/02.webp";
+import lab3 from "../assets/images/lab/03.webp";
+import lab4 from "../assets/images/lab/04.webp";
+import lab5 from "../assets/images/lab/05.webp";
+import lab6 from "../assets/images/lab/06.webp";
+import lab7 from "../assets/images/lab/07.webp";
+import lab8 from "../assets/images/lab/08.webp";
+import lab9 from "../assets/images/lab/09.webp";
+import lab10 from "../assets/images/lab/10.webp";
+import lab11 from "../assets/images/lab/11.webp";
+import lab12 from "../assets/images/lab/12.webp";
 import officeExterior from "../assets/images/office-exterior.jpg";
 
 const SERVED_STATES = [
@@ -334,7 +334,7 @@ export default function About() {
           </div>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
             <h2
-              className="font-display text-primary font-extrabold leading-none"     
+              className="font-display text-primary font-extrabold leading-none"
               style={{
                 fontSize: "clamp(28px, 4vw, 48px)",
                 letterSpacing: "-1px",
