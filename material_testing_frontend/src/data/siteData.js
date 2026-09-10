@@ -79,7 +79,7 @@ export const TESTIMONIALS = [
   },
   {
     id: 4,
-    name: "Robert Simons",
+    name: "Robert Simmons",
     role: "Civil Engineer, BlueLine Infrastructure",
     text: "SSN handled our full geotechnical testing package for a highway project. Reliable, fast, and their reports are accepted without question by all regulatory bodies.",
   },
