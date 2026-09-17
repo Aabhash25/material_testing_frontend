@@ -45,6 +45,12 @@ export default function Contact() {
         templateParams,
         "FfbeEFM5Nu1xMYqzD",
       );
+      // 🔥 Fire Google Ads conversion — only after both emails succeed
+      if (window.gtag) {
+        window.gtag("event", "conversion", {
+          send_to: "AW-18430464863/ZdjJCO_Ox-4cEN-mqtRE",
+        });
+      }
 
       setSubmitted(true);
     } catch (error) {
