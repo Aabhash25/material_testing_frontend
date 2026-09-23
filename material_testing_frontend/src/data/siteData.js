@@ -95,6 +95,6 @@ export const CERTIFICATIONS = [
 export const CONTACT_INFO = {
   address: '6500 McDonough Dr, Suite E-04, Norcross, Georgia 30093',
   phone: '(470) 504-5962',
-  email: 'ssnmaterialtesting@gmail.com',
+  email: 'contact@ssnmaterialtesting.com',
   hours: 'Mon–Sat: 7am – 4pm',
 }

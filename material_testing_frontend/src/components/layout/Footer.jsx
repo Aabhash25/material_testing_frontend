@@ -57,10 +57,10 @@ export default function Footer() {
             <li className="flex items-center gap-3">
               <span>✉️</span>
               <a
-                href="mailto:ssnmaterialtesting@gmail.com"
+                href="mailto:contact@ssnmaterialtesting.com"
                 className="hover:text-accent transition-colors duration-200 break-all"
               >
-                ssnmaterialtesting@gmail.com
+                contact@ssnmaterialtesting.com
               </a>
             </li>
 
