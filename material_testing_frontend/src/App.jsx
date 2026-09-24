@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
@@ -19,7 +19,6 @@ function ScrollToTop() {
 
 function GAPageTracker() {
   const location = useLocation();
-
   useEffect(() => {
     if (window.gtag) {
       window.gtag("config", GA_ID, {
@@ -27,24 +26,29 @@ function GAPageTracker() {
       });
     }
   }, [location]);
-
   return null;
 }
 
-export default function App() {
+function Root() {
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
       <GAPageTracker />
       <PageLoader />
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="services" element={<Services />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+      <Layout />
+    </>
   );
 }
+
+export const routes = [
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "services", element: <Services /> },
+      { path: "about", element: <About /> },
+      { path: "contact", element: <Contact /> },
+    ],
+  },
+];
