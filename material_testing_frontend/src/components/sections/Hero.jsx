@@ -82,10 +82,8 @@ export default function Hero() {
               </p>
             </div>
 
-            <h1 className="font-display font-extrabold leading-tight text-[clamp(42px,6vw,72px)] mb-6">
-              Independent Construction Material
-              <br />
-              Testing Laboratory in{" "}
+            <h1 className="font-display font-extrabold leading-tight text-[clamp(32px,4.2vw,54px)] mb-6">
+              Independent Construction Material Testing Laboratory in{" "}
               <span className="text-accent">Norcross, Georgia</span>
             </h1>
 
