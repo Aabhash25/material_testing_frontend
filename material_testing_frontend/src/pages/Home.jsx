@@ -6,11 +6,25 @@ import HowItWorks from "../components/sections/HowItWorks";
 import CTA from "../components/sections/CTA";
 import SEO from "../components/SEO";
 
+const SERVICE_STATES = [
+  "Texas",
+  "Florida",
+  "Georgia",
+  "Alabama",
+  "Tennessee",
+  "North Carolina",
+  "South Carolina",
+  "Virginia",
+  "West Virginia",
+];
+
 const localBusiness = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
+  "@id": "https://ssnmaterialtesting.com/#business",
   name: "SSN Material Testing Laboratory",
   url: "https://ssnmaterialtesting.com/",
+  image: "https://ssnmaterialtesting.com/ssn-preview.jpg",
   telephone: "+1-470-504-5962",
   email: "contact@ssnmaterialtesting.com",
   address: {
@@ -21,6 +35,10 @@ const localBusiness = {
     postalCode: "30093",
     addressCountry: "US",
   },
+  areaServed: SERVICE_STATES.map((name) => ({
+    "@type": "State",
+    name,
+  })),
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: [
@@ -40,8 +58,8 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Material Testing Lab in Georgia | SSN Material Testing"
-        description="Certified soil, concrete, asphalt and aggregate testing for contractors and engineers in GA and 8 nearby states. Reports in as little as 48 hours."
+        title="Construction Materials Testing Lab in Georgia | SSN"
+        description="Soil, concrete, asphalt and aggregate testing for contractors and engineers in Georgia and nearby states. Call (470) 504-5962 or request a quote."
         path="/"
       />
       <Head>
