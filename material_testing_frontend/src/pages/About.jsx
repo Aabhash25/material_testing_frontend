@@ -16,6 +16,7 @@ import lab10 from "../assets/images/lab/10.webp";
 import lab11 from "../assets/images/lab/11.webp";
 import lab12 from "../assets/images/lab/12.webp";
 import officeExterior from "../assets/images/office-exterior.jpg";
+import SEO from "../components/SEO";
 
 const SERVED_STATES = [
   "Texas",
@@ -162,6 +163,11 @@ function USMap() {
 export default function About() {
   return (
     <div className="pt-24">
+      <SEO
+        title="About SSN Lab | Women-Owned Material Testing Laboratory"
+        description="Meet SSN Material Testing Laboratory, a women-owned, Georgia-registered lab with a 1,600 sq. ft. facility serving construction projects across nine states."
+        path="/about"
+      />
       {/* ── HERO ── */}
       <section className="bg-primary py-20 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">

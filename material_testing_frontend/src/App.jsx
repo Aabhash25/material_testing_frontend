@@ -3,9 +3,11 @@ import { useLocation } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
+import ServiceDetail from "./pages/ServiceDetail";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import PageLoader from "./components/layout/PageLoader";
+import { SERVICES } from "./data/siteData";
 
 const GA_ID = "AW-18430464863";
 
@@ -40,6 +42,11 @@ function Root() {
   );
 }
 
+const serviceRoutes = SERVICES.map((s) => ({
+  path: `services/${s.slug}`,
+  element: <ServiceDetail service={s} />,
+}));
+
 export const routes = [
   {
     path: "/",
@@ -47,6 +54,7 @@ export const routes = [
     children: [
       { index: true, element: <Home /> },
       { path: "services", element: <Services /> },
+      ...serviceRoutes,
       { path: "about", element: <About /> },
       { path: "contact", element: <Contact /> },
     ],

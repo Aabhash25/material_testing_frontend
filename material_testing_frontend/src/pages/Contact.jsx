@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CONTACT_INFO } from "../data/siteData";
 import contactIllustration from "../assets/images/Contact us-bro.svg";
 import emailjs from "@emailjs/browser";
+import SEO from "../components/SEO";
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -63,6 +64,11 @@ export default function Contact() {
 
   return (
     <div className="pt-24">
+      <SEO
+        title="Contact SSN Material Testing Laboratory | Project Inquiries"
+        description="Need soil or concrete testing? Send your project details to SSN Material Testing Laboratory and hear back within 24 hours."
+        path="/contact"
+      />
       {/* Hero */}
       <section className="bg-primary py-20 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
