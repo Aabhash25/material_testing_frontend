@@ -5,6 +5,7 @@ import HowItWorks from "../components/sections/HowItWorks";
 // import Testimonials from "../components/sections/Testimonials";
 import CTA from "../components/sections/CTA";
 import SEO from "../components/SEO";
+import FAQ from "../components/sections/FAQ";
 
 const SERVICE_STATES = [
   "Texas",
@@ -71,6 +72,7 @@ export default function Home() {
       {/* <Stats /> */}
       <HowItWorks />
       {/* <Testimonials /> */}
+      <FAQ />
       <CTA />
     </>
   );
