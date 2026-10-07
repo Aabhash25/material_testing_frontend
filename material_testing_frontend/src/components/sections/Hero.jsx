@@ -73,7 +73,7 @@ export default function Hero() {
             <div className="mb-6">
               <div className="flex items-center justify-center lg:justify-start gap-3 mb-2">
                 <div className="w-10 h-0.5 bg-accent shrink-0" />
-                <span className="font-ui text-accent text-xs uppercase tracking-[4px]">
+                <span className="font-ui text-accent text-xl md:text-2xl font-semibold uppercase tracking-[4px]">
                   SSN Material Testing LLC
                 </span>
               </div>
@@ -88,12 +88,12 @@ export default function Hero() {
             </h1>
 
             <p className="font-body text-white/70 text-lg max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
-              Accurate testing for Soils, Aggregate, Concrete, Asphalt, and
-              Others
+              Reliable, Timely, and Cost-Effective Laboratory Services for
+              Soils, Aggregate, Concrete, Asphalt, and Others
             </p>
 
-            <div className="mb-8 border-l-2 border-accent/40 pl-4">
-              <p className="font-ui text-white/40 text-[10px] uppercase tracking-[3px] mb-3">
+            <div className="mt-10 mb-8 border-l-2 border-accent/40 pl-4">
+              <p className="font-ui text-white/70 text-lg md:text-xl font-semibold uppercase tracking-[3px] mb-4">
                 What we are equipped for
               </p>
               <div className="flex flex-wrap gap-2">

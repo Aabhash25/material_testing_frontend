@@ -35,31 +35,25 @@ export default function Services() {
               <span className="text-accent">SERVICES</span>
             </h1>
             <p className="font-body text-white/60 text-base leading-relaxed max-w-lg">
-              Comprehensive material testing — soil, compaction, concrete,
-              asphalt, aggregate, rock, and drainage — delivered with precision
-              and speed.
+              Comprehensive material testing — soils, aggregate,rock, concrete,
+              asphalt, masonry, and grout — delivered with precision and speed.
             </p>
           </div>
 
-          {/* Stat strip */}
-          <div className="flex gap-10 md:gap-14 shrink-0">
-            {[
-              { val: String(SERVICES.length), lbl: "Testing Services" },
-              { val: "40+", lbl: "Test Types" },
-              { val: String(STANDARDS.length), lbl: "Standards" },
-            ].map((s) => (
-              <div key={s.lbl}>
-                <div
-                  className="font-display text-accent font-extrabold leading-none"
-                  style={{ fontSize: "clamp(32px, 4vw, 48px)" }}
-                >
-                  {s.val}
-                </div>
-                <div className="font-ui text-white/40 text-xs uppercase tracking-[2px] mt-1">
-                  {s.lbl}
-                </div>
-              </div>
-            ))}
+          {/* Stat */}
+          <div className="shrink-0">
+            <div
+              className="font-display text-accent font-extrabold leading-none"
+              style={{ fontSize: "clamp(48px, 6vw, 80px)" }}
+            >
+              100+
+            </div>
+            <div className="font-ui text-white/40 text-xs uppercase tracking-[2px] mt-1">
+              Tests Performed
+            </div>
+            <div className="font-ui text-white/40 text-xs uppercase tracking-[2px]">
+              In-House
+            </div>
           </div>
         </div>
       </section>

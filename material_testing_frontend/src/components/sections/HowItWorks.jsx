@@ -5,7 +5,7 @@ import emailjs from "@emailjs/browser";
 const STEPS = [
   {
     num: "01",
-    title: "Submit Your Request",
+    title: "Submit Your Lab Test",
     desc: "Contact us with your project information and test requirements.",
   },
   {
@@ -16,7 +16,7 @@ const STEPS = [
   {
     num: "03",
     title: "Test Results",
-    desc: "We deliver the laboratory test report as soon as 48 hours — digitally delivered and ready for your use.",
+    desc: "We deliver the laboratory test report as soon as 48 hours.",
   },
 ];
 
@@ -147,7 +147,7 @@ export default function HowItWorks() {
             {/* Note — below all 3 steps, inside left column */}
             <div className="mt-6 inline-block bg-accent/5 border-l-2 border-accent px-3 py-2 rounded">
               <p className="font-body text-gray-600 text-xs leading-relaxed">
-                <span className="text-accent font-semibold">💡</span> First time
+                <span className="text-accent font-semibold"></span> First time
                 client? Please fill out our contact form or call directly for
                 fee schedules.{" "}
                 <Link

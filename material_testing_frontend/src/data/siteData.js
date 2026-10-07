@@ -329,6 +329,69 @@ export const SERVICES = [
       },
     ],
   },
+  {
+    slug: "masonry-grout-testing",
+    name: "Masonry & Grout Testing",
+    seoTitle: "Masonry & Grout Testing Lab in Georgia | SSN Material Testing",
+    seoDescription:
+      "Masonry prism, CMU and brick compressive strength, mortar cube, field mortar and grout prism testing from our Georgia lab.",
+    summary:
+      "Strength and absorption testing of masonry units, mortar, grout and assembled prisms.",
+    intro:
+      "We test masonry units, mortar and grout, along with the prisms built from them, to confirm that masonry construction meets the strength the design requires.",
+    overview: [
+      "Masonry is built from three materials working together: the units (concrete block or clay brick), the mortar that bonds them, and the grout that fills the cells in reinforced walls. Testing covers each material on its own, and then the assembled masonry, so the strength of the finished wall can be confirmed and not assumed.",
+      "Results are compared with the specified strength of the masonry, and with the requirements of the project specification. The tests below are what fall under it.",
+    ],
+    usedFor: ["Load-bearing and reinforced masonry", "Block and brick quality control", "Mortar and grout verification"],
+    tests: [
+      {
+        name: "Compressive Strength of Masonry Prisms",
+        method: "ASTM C1314",
+        text: "A prism is a small stack of masonry units bonded with mortar, and grouted if the wall will be grouted. It is loaded in a compression machine until it fails, and the peak load is converted to pounds per square inch. The result shows the strength of the masonry as a whole, and it is the value compared with the strength assumed in the structural design.",
+      },
+      {
+        name: "Concrete Masonry Unit Compressive Strength",
+        method: "ASTM C140",
+        text: "Concrete blocks are capped and crushed in a compression machine, and the maximum load is divided by the net area of the block. It confirms that the units delivered to site meet the strength their specification requires.",
+      },
+      {
+        name: "Concrete Masonry Unit Absorption and Density",
+        method: "ASTM C140",
+        text: "Absorption is the amount of water a block takes up when soaked, and density is its weight per unit volume. Together they show how dense the block is, and they are used to classify units as lightweight, medium weight or normal weight.",
+      },
+      {
+        name: "Clay Brick Compressive Strength",
+        method: "ASTM C67",
+        text: "Clay bricks are crushed flat to find the load they can carry. The result is used to grade the brick and to confirm that it is strong enough for the wall it will be built into.",
+      },
+      {
+        name: "Clay Brick Absorption and Initial Rate of Absorption",
+        method: "ASTM C67",
+        text: "Absorption measures how much water a brick takes up when soaked or boiled, which is an indicator of how well it will resist weathering. The initial rate of absorption measures how quickly a dry brick draws water from mortar, which affects how well the mortar bonds to it.",
+      },
+      {
+        name: "Mortar Cube Compressive Strength",
+        method: "ASTM C109",
+        text: "Mortar is cast into two-inch cubes, cured, and crushed at a specified age. It is used to check that a mortar mix meets the strength required for its type, and to compare mortar mixes in the laboratory.",
+      },
+      {
+        name: "Field Mortar Sampling and Testing",
+        method: "ASTM C780",
+        text: "Mortar is sampled during construction, and its consistency and compressive strength are measured. Because it uses mortar taken from the wall being built, it shows what is actually being laid and not only what was designed.",
+      },
+      {
+        name: "Grout Prism Compressive Strength",
+        method: "ASTM C1019",
+        text: "Grout is poured into molds made from the same type of masonry unit that will be used in the wall, so the units draw water from it as they would in the field. The prisms are cured and crushed, and the result is compared with the grout strength in the specification.",
+      },
+      {
+        name: "Height Change of Non-Shrink Grout",
+        method: "ASTM C1090",
+        text: "Grout that shrinks as it hardens can leave gaps under bearing plates and baseplates. This test measures the change in height of a grout specimen over time, to confirm that the grout stays in full contact with what it supports.",
+      },
+    ],
+  },
 ];
 
 export const STATS = [

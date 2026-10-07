@@ -21,6 +21,9 @@ export default function Footer() {
               alt="SSN Material Testing"
               className="h-16 w-auto object-contain"
             />
+            <div className="mt-3 font-display text-white font-extrabold text-base uppercase tracking-widest">
+              SSN Material Testing LLC
+            </div>
           </div>
 
           <p className="font-body text-sm leading-relaxed text-white/50 max-w-xs">
