@@ -2,6 +2,12 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 
+// Paste your new EmailJS values here (EmailJS dashboard):
+//   Service ID  -> Email Services
+//   Public Key  -> Account > General
+const EMAILJS_SERVICE_ID = "service_lnsm9xy";
+const EMAILJS_PUBLIC_KEY = "lld37b4B0gl48sfH_";
+
 const STEPS = [
   {
     num: "01",
@@ -47,17 +53,19 @@ export default function HowItWorks() {
     };
 
     try {
+      // Contact notification (to the lab)
       await emailjs.send(
-        "service_bggjqno",
-        "template_shej48i",
+        EMAILJS_SERVICE_ID,
+        "template_72v2quc",
         templateParams,
-        "FfbeEFM5Nu1xMYqzD",
+        EMAILJS_PUBLIC_KEY,
       );
+      // Auto-reply (to the visitor)
       await emailjs.send(
-        "service_bggjqno",
-        "template_rlylecq",
+        EMAILJS_SERVICE_ID,
+        "template_jni9tya",
         templateParams,
-        "FfbeEFM5Nu1xMYqzD",
+        EMAILJS_PUBLIC_KEY,
       );
 
       setSubmitted(true);
