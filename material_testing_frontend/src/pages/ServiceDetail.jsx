@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Head } from "vite-react-ssg";
 import SEO from "../components/SEO";
 import { SERVICES, CONTACT_INFO } from "../data/siteData";
+import ServiceContactForm from "../components/ServiceContactForm";
 
 const STATES = [
   "Texas",
@@ -360,6 +361,7 @@ export default function ServiceDetail({ service }) {
           </div>
         </div>
       </section>
+      <ServiceContactForm service={service} />
 
       {/* ── CTA ── */}
       <section className="bg-primary py-20 px-6">

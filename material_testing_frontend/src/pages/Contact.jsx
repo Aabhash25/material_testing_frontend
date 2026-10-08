@@ -27,31 +27,28 @@ export default function Contact() {
       email: form.email,
       phone: form.phone,
       service: form.service,
+      source: "Contact page",
       message: form.message,
     };
 
     try {
-      // Email 1 — Notification to YOU
+      // Email 1 — Notification to YOU (Contact Us template)
       await emailjs.send(
-        "service_bggjqno",
-        "template_shej48i",
+        "service_lnsm9xy",
+        "template_72v2quc",
         templateParams,
-        "FfbeEFM5Nu1xMYqzD",
+        "lld37b4B0gl48sfH_",
       );
 
-      // Email 2 — Thank-you email to USER
+      // Email 2 — Thank-you email to USER (Auto-Reply template)
       await emailjs.send(
-        "service_bggjqno",
-        "template_rlylecq",
+        "service_lnsm9xy",
+        "template_jni9tya",
         templateParams,
-        "FfbeEFM5Nu1xMYqzD",
+        "lld37b4B0gl48sfH_",
       );
-      // 🔥 Fire Google Ads conversion — only after both emails succeed
-      if (window.gtag) {
-        window.gtag("event", "conversion", {
-          send_to: "AW-18430464863/ZdjJCO_Ox-4cEN-mqtRE",
-        });
-      }
+
+      // TODO: add Google Ads conversion tracking here once it's set up.
 
       setSubmitted(true);
     } catch (error) {
