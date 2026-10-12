@@ -69,7 +69,7 @@ export default function Footer() {
 
             <li className="flex items-center gap-3">
               <span>🕐</span>
-              <span>Mon–Fri: 7:00 AM – 4:00 PM</span>
+              <span>Mon–Fri: 8:00 AM – 5:00 PM</span>
             </li>
           </ul>
         </div>

@@ -392,6 +392,90 @@ export const SERVICES = [
       },
     ],
   },
+  {
+    slug: "on-site-construction-material-testing",
+    name: "On-Site Construction Material Testing & Sample Collection",
+    seoTitle: "On-Site Construction Material Testing in Georgia | SSN Material Testing",
+    seoDescription: "On-site soil compaction, fresh concrete testing, cylinder sampling, subgrade evaluation, asphalt sampling and field reports for Georgia construction projects.",
+    summary: "SSN Material Testing provides professional on-site construction material testing, field inspections, and sample collection services to verify that construction materials and workmanship comply with project specifications, engineering requirements, and applicable ASTM/AASHTO standards.",
+    intro: "Our qualified field technicians perform on-site testing, collect representative samples, and coordinate laboratory testing to support quality assurance and quality control throughout construction.",
+    overview: [
+      "Construction material testing is essential for verifying the quality, strength, and performance of materials used in building foundations, earthwork, pavements, and structural systems.",
+      "Our field testing services help contractors, engineers, developers, and project owners identify potential material deficiencies, monitor construction quality, and maintain compliance with approved construction documents.",
+      "We provide field testing, sample collection, laboratory coordination, and technical reporting throughout the construction process.",
+      "Testing methods and services are selected based on project requirements, applicable standards, equipment availability, and personnel qualifications."
+    ],
+    usedFor: [
+      "Commercial and residential construction",
+      "Roadway and infrastructure projects",
+      "Building foundations and structural systems",
+      "Earthwork, grading, and utility construction",
+      "Concrete placement and pavement construction",
+      "Construction quality assurance and quality control"
+    ],
+    tests: [
+      {
+        name: "In-Place Soil Compaction Testing",
+        method: "ASTM D6938 / ASTM D1556",
+        text: "Measure in-place soil density and moisture content using nuclear density gauges or other approved methods. Results are compared with laboratory Proctor values to evaluate compliance with specified compaction requirements."
+      },
+      {
+        name: "Soil and Aggregate Sample Collection",
+        method: "ASTM D75 / ASTM D4220 / Applicable Sampling Standards",
+        text: "Collect representative soil, aggregate, and borrow material samples from construction sites, stockpiles, excavations, and material sources for laboratory testing, classification, and suitability evaluations."
+      },
+      {
+        name: "Fresh Concrete Field Testing",
+        method: "ASTM C143 / C231 / C173 / C1064",
+        text: "Perform on-site testing of freshly mixed concrete, including slump, air content, and temperature, to evaluate compliance with approved concrete mix designs and project specifications."
+      },
+      {
+        name: "Concrete Cylinder Sampling and Preparation",
+        method: "ASTM C31 / ASTM C39",
+        text: "Prepare and initially cure concrete strength specimens at construction sites. Transport specimens to the laboratory for curing and compressive strength testing at specified ages, commonly 7 and 28 days."
+      },
+      {
+        name: "Foundation Subgrade and Bearing Evaluation",
+        method: "Project Geotechnical Recommendations / Applicable Standards",
+        text: "Observe exposed foundation bearing surfaces and subgrade conditions to identify unsuitable materials, disturbed soils, groundwater concerns, and potential deviations from geotechnical recommendations. Coordinate with the Geotechnical Engineer of Record when corrective action is required."
+      },
+      {
+        name: "Earthwork and Fill Placement Monitoring",
+        method: "ASTM D698 / D1557 / D6938",
+        text: "Monitor fill placement, lift thickness, moisture conditioning, and compaction operations. Perform field density testing and compare results against project-specific compaction criteria."
+      },
+      {
+        name: "Asphalt Pavement Sampling and Field Testing",
+        method: "ASTM D979 / D2950 / Applicable DOT Standards",
+        text: "Collect asphalt mixture samples and perform applicable field density testing to support verification of pavement material properties, placement quality, and compaction requirements."
+      },
+      {
+        name: "Masonry Grout and Mortar Sampling",
+        method: "ASTM C1019 / C780",
+        text: "Collect and prepare masonry grout specimens and conduct applicable mortar field evaluations to support laboratory testing and verification of masonry construction quality."
+      },
+      {
+        name: "Aggregate Base and Pavement Subgrade Testing",
+        method: "ASTM D6938 / Applicable DOT Specifications",
+        text: "Perform field density and moisture testing of aggregate base courses, roadway subgrades, and compacted pavement foundation materials to verify specified compaction requirements."
+      },
+      {
+        name: "Concrete Core and Existing Material Sampling",
+        method: "ASTM C42 / Applicable Sampling Standards",
+        text: "Coordinate or perform concrete core sampling and collection of existing construction materials, where appropriately equipped, for laboratory evaluation of strength, thickness, and material condition."
+      },
+      {
+        name: "Field Sample Handling and Transportation",
+        method: "Applicable ASTM Standards",
+        text: "Provide proper sample identification, documentation, handling, initial curing where required, and transportation to the laboratory to help maintain sample integrity and traceability."
+      },
+      {
+        name: "Field Testing Reports and Quality Documentation",
+        method: "Project Specifications / Applicable Testing Standards",
+        text: "Prepare field testing reports documenting test locations, methods, observations, measurements, results, and specification compliance. Communicate nonconforming results to designated project representatives for evaluation and corrective action."
+      }
+    ]
+  },
 ];
 
 export const STATS = [

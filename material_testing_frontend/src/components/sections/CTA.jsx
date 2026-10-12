@@ -117,12 +117,11 @@ export default function CTA() {
           >
             NEED GEO-MATERIAL &
             <br />
-            CONSTRUCTIOIN MATERIAL TESTING SERVICES?
+            Construction MATERIAL TESTING SERVICES?
           </h2>
           <p className="font-body text-gray-500 text-sm leading-relaxed max-w-md">
-            Accurate, certified test reports delivered fast. We serve
-            contractors, engineers, and government projects across South
-            Atlantic Region.
+            We serve contractors, engineers, and government projects across
+            South Atlantic Region.
           </p>
         </div>
 
