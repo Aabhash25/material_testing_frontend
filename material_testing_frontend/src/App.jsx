@@ -9,8 +9,6 @@ import Contact from "./pages/Contact";
 import PageLoader from "./components/layout/PageLoader";
 import { SERVICES } from "./data/siteData";
 
-const GA_ID = "AW-18430464863";
-
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -19,23 +17,10 @@ function ScrollToTop() {
   return null;
 }
 
-function GAPageTracker() {
-  const location = useLocation();
-  useEffect(() => {
-    if (window.gtag) {
-      window.gtag("config", GA_ID, {
-        page_path: location.pathname + location.search,
-      });
-    }
-  }, [location]);
-  return null;
-}
-
 function Root() {
   return (
     <>
       <ScrollToTop />
-      <GAPageTracker />
       <PageLoader />
       <Layout />
     </>

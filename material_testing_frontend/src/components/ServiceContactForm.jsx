@@ -64,7 +64,14 @@ export default function ServiceContactForm() {
         "lld37b4B0gl48sfH_",
       );
 
-      // TODO: add Google Ads conversion tracking here once it's set up.
+      // Google Ads conversion tracking (via GTM) — fires only on success.
+      // If either emailjs.send above throws, execution jumps to `catch`
+      // and this push is skipped.
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "form_submit_success",
+        form_name: "service_contact_form",
+      });
 
       setStatus("sent");
     } catch (error) {
