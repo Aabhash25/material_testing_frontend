@@ -49,24 +49,39 @@ export default function HowItWorks() {
       email: form.email,
       phone: form.phone,
       service: form.service,
+      source: "Home page",
       message: form.message,
     };
 
     try {
-      // Contact notification (to the lab)
+      // Contact notification (to the lab). If this fails, the lead didn't arrive.
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         "template_72v2quc",
         templateParams,
         EMAILJS_PUBLIC_KEY,
       );
-      // Auto-reply (to the visitor)
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        "template_jni9tya",
-        templateParams,
-        EMAILJS_PUBLIC_KEY,
-      );
+
+      // Lead received: record the conversion now (Google Ads via GTM).
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "form_submit_success",
+        form_name: "home_form",
+        form_location: "home_page",
+        service: form.service || "not_selected",
+      });
+
+      // Auto-reply (to the visitor). Failure here shouldn't affect the lead.
+      try {
+        await emailjs.send(
+          EMAILJS_SERVICE_ID,
+          "template_jni9tya",
+          templateParams,
+          EMAILJS_PUBLIC_KEY,
+        );
+      } catch (autoReplyError) {
+        console.error("Auto-reply failed:", autoReplyError);
+      }
 
       setSubmitted(true);
       setTimeout(() => {
@@ -284,3 +299,4 @@ export default function HowItWorks() {
     </section>
   );
 }
+

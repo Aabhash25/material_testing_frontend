@@ -217,7 +217,7 @@ export default function Contact() {
                         name="phone"
                         value={form.phone}
                         onChange={handleChange}
-                        placeholder="+977-XXXXXXXXX"
+                        placeholder="(XXX) XXX-XXXX"
                         className="w-full border border-gray-200 rounded px-4 py-3 font-body text-sm text-primary placeholder-gray-300 focus:outline-none focus:border-accent transition-colors duration-200"
                       />
                     </div>
