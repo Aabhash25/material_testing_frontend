@@ -4,6 +4,15 @@ import contactIllustration from "../assets/images/Contact us-bro.svg";
 import emailjs from "@emailjs/browser";
 import SEO from "../components/SEO";
 
+// Formats US phone numbers as E.164 (e.g. +15551234567). Returns undefined
+// if the number isn't a valid 10-digit (or 11-digit starting with 1) US number.
+function toE164(phone) {
+  const d = String(phone || "").replace(/\D/g, "");
+  if (d.length === 10) return "+1" + d;
+  if (d.length === 11 && d.startsWith("1")) return "+" + d;
+  return undefined;
+}
+
 export default function Contact() {
   const [form, setForm] = useState({
     name: "",
@@ -51,10 +60,19 @@ export default function Contact() {
       // Google Ads conversion tracking (via GTM) — fires only on success.
       // If either emailjs.send above throws, execution jumps to `catch`
       // and this push is skipped.
+      // user_data feeds Google Ads enhanced conversions. Phone is left out
+      // when empty/invalid; email alone is fine.
+      const userData = {
+        email: String(form.email || "").trim().toLowerCase(),
+      };
+      const phoneE164 = toE164(form.phone);
+      if (phoneE164) userData.phone_number = phoneE164;
+
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: "form_submit_success",
         form_name: "contact_form",
+        user_data: userData,
       });
 
       setSubmitted(true);

@@ -8,6 +8,15 @@ import emailjs from "@emailjs/browser";
 const EMAILJS_SERVICE_ID = "service_lnsm9xy";
 const EMAILJS_PUBLIC_KEY = "lld37b4B0gl48sfH_";
 
+// Formats US phone numbers as E.164 (e.g. +15551234567). Returns undefined
+// if the number isn't a valid 10-digit (or 11-digit starting with 1) US number.
+function toE164(phone) {
+  const d = String(phone || "").replace(/\D/g, "");
+  if (d.length === 10) return "+1" + d;
+  if (d.length === 11 && d.startsWith("1")) return "+" + d;
+  return undefined;
+}
+
 const STEPS = [
   {
     num: "01",
@@ -63,12 +72,21 @@ export default function HowItWorks() {
       );
 
       // Lead received: record the conversion now (Google Ads via GTM).
+      // user_data feeds Google Ads enhanced conversions. Phone is left out
+      // when empty/invalid; email alone is fine.
+      const userData = {
+        email: String(form.email || "").trim().toLowerCase(),
+      };
+      const phoneE164 = toE164(form.phone);
+      if (phoneE164) userData.phone_number = phoneE164;
+
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: "form_submit_success",
         form_name: "home_form",
         form_location: "home_page",
         service: form.service || "not_selected",
+        user_data: userData,
       });
 
       // Auto-reply (to the visitor). Failure here shouldn't affect the lead.
@@ -299,4 +317,3 @@ export default function HowItWorks() {
     </section>
   );
 }
-

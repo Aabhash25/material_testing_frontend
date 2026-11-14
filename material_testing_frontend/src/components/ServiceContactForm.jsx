@@ -67,10 +67,15 @@ export default function ServiceContactForm() {
       // Google Ads conversion tracking (via GTM) — fires only on success.
       // If either emailjs.send above throws, execution jumps to `catch`
       // and this push is skipped.
+      // user_data feeds Google Ads enhanced conversions. This form doesn't
+      // collect a phone number, so only the email is sent.
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: "form_submit_success",
         form_name: "service_contact_form",
+        user_data: {
+          email: String(form.email || "").trim().toLowerCase(),
+        },
       });
 
       setStatus("sent");
